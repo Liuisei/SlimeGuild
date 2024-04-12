@@ -25,6 +25,7 @@ public class DataManager : Singleton<DataManager>, IDataManager
 
     public override void AwakeFunction()
     {
+        
     }
 
     public int Money

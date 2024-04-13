@@ -17,5 +17,6 @@ public class GachaManager : Singleton<GachaManager>
         DataManager.Instance.HaveCharacterList[index]++; // ゲットしたキャラクターのインデックスをリストに追加
 
         DataManager.Instance.GetCharacterList.Add(index); // ゲットしたキャラクターのインデックスをリストに追加
+        Debug.Log("ADD" + index);
     }
 }

@@ -1,15 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DataManager : Singleton<DataManager>, IDataManager
 {
     [SerializeField]
     private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
 
-    
+
     [SerializeField]
     private int money;
 
@@ -19,13 +17,20 @@ public class DataManager : Singleton<DataManager>, IDataManager
     [SerializeField]
     private List<int> getCharacterList = new List<int>();
 
+    [SerializeField]
+    private List<int> partyList = new List<int> ();
+
+
+    [SerializeField]
+    private int nowPower = 0;
+
+
     public Action OnMoneyChanged;
     public Action OnHaveCharacterListChanged;
     public Action OnGetCharacterListChanged;
 
     public override void AwakeFunction()
     {
-        
     }
 
     public int Money
@@ -61,5 +66,10 @@ public class DataManager : Singleton<DataManager>, IDataManager
     public CharacterDatabase CharacterDatabase
     {
         get { return characterDatabase; }
+    }
+    public List<int> PartyList
+    {
+        get { return partyList; }
+        set { partyList = value; }
     }
 }

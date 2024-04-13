@@ -83,7 +83,8 @@ GameObject:
   - component: {fileID: 6514228990634476153}
   - component: {fileID: 8722209295764540386}
   - component: {fileID: 658958511155535377}
-  - component: {fileID: 5234204536295314942}
+  - component: {fileID: 7211197701041041199}
+  - component: {fileID: 535109865595596617}
   m_Layer: 5
   m_Name: BagCharactor
   m_TagString: Untagged
@@ -147,7 +148,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &5234204536295314942
+--- !u!114 &7211197701041041199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,11 +157,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1176767029550448671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9f7dc0999245c499a1bf45a65784cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 561ce05013a9dc648849f4e3f0af4bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawImageCharacter: {fileID: 3233618338916541276}
-  tmpCharacterNumber: {fileID: 5537905619219045585}
+  graphicComponent: {fileID: 3233618338916541276}
+--- !u!114 &535109865595596617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176767029550448671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afe9ff6b33a36a4f8b33b29226dcfdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicComponent: {fileID: 5537905619219045585}
 --- !u!1 &1945686153549346712
 GameObject:
   m_ObjectHideFlags: 0

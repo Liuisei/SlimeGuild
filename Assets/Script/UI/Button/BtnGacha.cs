@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OneGachaButton : MyButton
+public class BtnGacha : MyButton
 {
     [SerializeField]
     int price = 10;

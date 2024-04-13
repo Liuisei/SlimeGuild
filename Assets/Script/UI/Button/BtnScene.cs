@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneButton : MyButton 
+public class BtnScene : MyButton 
 {
     public int sceneIndexToLoad = 0; // The index of the scene to load when the button is released
 

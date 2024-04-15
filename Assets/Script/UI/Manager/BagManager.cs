@@ -2,42 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class BagManager : MonoBehaviour
+public class BagManager : UIListManager<PartySelectContent>
 {
-    [SerializeField]
-    GameObject bagprefab;
-    [SerializeField]
-    Transform bagParent;
-    
-    private List<GameObject> bagprefabs = new List<GameObject>();
-
-    private void Start()
+    protected override bool HasItem(int id)
     {
-        UpdateBag();
+        throw new NotImplementedException();
     }
 
-    public void UpdateBag()
+    protected override List<int> GetOrderedIDList()
     {
-        foreach (var e in bagprefabs)
-        {
-            Destroy(e);
-        }
-        bagprefabs.Clear();
-        
-        for (int i = 0; i < DataManager.Instance.CharacterDatabase.characters.Count; i++)
-        {
-            if (DataManager.Instance.HaveCharacterList[i] != 0)
-            {
-                Debug.Log("BagManager: " + i);
-                var newBagprefab = Instantiate(bagprefab, bagParent);
-                bagprefabs.Add(newBagprefab);
-                var bagCharacterImage = newBagprefab.GetComponent<UGCharactorIcon>();
-                bagCharacterImage.ViewId = i;
-                var bagCharacterIndex = newBagprefab.GetComponent<UGCharactorIndex>();
-                bagCharacterIndex.ViewId = i;
-                
-            }
-        }
+        throw new NotImplementedException();
+    }
+
+    protected override List<int> GetOrderedIDByHaveCountList()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override List<int> GetOrderedIDByRerity()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void UpdateItem(int Id)
+    {
+        throw new NotImplementedException();
     }
 }

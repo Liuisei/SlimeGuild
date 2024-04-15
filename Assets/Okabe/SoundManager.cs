@@ -63,7 +63,7 @@ public class SESoundData
 {
     public enum SE
     {
-        Attack,
+        Gacha,
         Damage,
         Hoge,
     }

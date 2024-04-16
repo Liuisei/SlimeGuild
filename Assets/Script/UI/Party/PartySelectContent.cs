@@ -8,15 +8,11 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownH
 {
     [SerializeField]
     private RawImage characterImage;
-
     [SerializeField]
     private TextMeshProUGUI levelText;
-
     [SerializeField]
     private int characterId;
-
     private bool _isSelected = false;
-
     [SerializeField]
     private GameObject characterSelectedPanel;
     
@@ -24,7 +20,7 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownH
     [SerializeField]
     private TextMeshProUGUI partyNumberText;
 
-
+    
     public int CharacterId
     {
         set
@@ -32,6 +28,7 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownH
             characterId = value;
             UpdateCharacterImage();
             UpdateLevelTextCountText();
+            UpdateIsSelected();
         }
     }
 
@@ -41,6 +38,16 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownH
         if (levelText      == null) Debug.LogError("levelText is not set");
     }
 
+    private void UpdateIsSelected()
+    {
+        if (DataManager.Instance.PartyList.Contains(characterId))
+        {
+            _isSelected = true;
+            characterSelectedPanel.SetActive(true);
+            partyNumberText.SetText(DataManager.Instance.PartyList.IndexOf(characterId).ToString());
+        }
+    }
+    
     private void UpdateCharacterImage()
     {
         characterImage.texture = DataManager.Instance.CharacterDatabase.GetCharacter(characterId).characterIcon;

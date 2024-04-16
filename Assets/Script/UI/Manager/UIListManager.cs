@@ -10,7 +10,7 @@ public abstract class UIListManager<T> : MonoBehaviour
     [SerializeField]
     protected Transform parentTransform;
 
-    private readonly List<T> _itemList = new List<T>();
+    protected readonly List<T> ItemList = new List<T>();
 
     protected virtual void Start()
     {
@@ -23,15 +23,15 @@ public abstract class UIListManager<T> : MonoBehaviour
         {
             if (HasItem(orderedIds[i]) == false) continue;
 
-            if (i < _itemList.Count)
+            if (i < ItemList.Count)
             {
-                UpdateItem(i);
+                UpdateItem(i, orderedIds[i]);
             }
             else
             {
                 GameObject item = Instantiate(itemPrefab, parentTransform);
-                _itemList.Add(item.GetComponent<T>());
-                UpdateItem(i);
+                ItemList.Add(item.GetComponent<T>());
+                UpdateItem(ItemList.Count() - 1, orderedIds[i]);
             }
         }
     }
@@ -41,6 +41,6 @@ public abstract class UIListManager<T> : MonoBehaviour
 
     protected abstract List<int> GetOrderedIDByHaveCountList(); // このメソッドは、アイテム所有数順。
 
-    protected abstract List<int> GetOrderedIDByRerity(); // このメソッドは、アイテムのレアリティ順。
-    protected abstract void      UpdateItem(int Id);     // このメソッドは、アイテムを更新するために使用されます。
+    protected abstract List<int> GetOrderedIDByRerity();        // このメソッドは、アイテムのレアリティ順。
+    protected abstract void      UpdateItem(int index, int id); // index番目のアイテムを渡されたIDを使用して、アイテムの情報を更新します。
 }

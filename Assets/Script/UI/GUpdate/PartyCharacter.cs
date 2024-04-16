@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UGCharactorIcon : MonoBehaviour,IPointerUpHandler
+public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField]
     private RawImage characterImage;
@@ -20,7 +20,7 @@ public class UGCharactorIcon : MonoBehaviour,IPointerUpHandler
         }
     }
 
-    protected  void Awake()
+    protected void Awake()
     {
         if (characterImage == null)
         {
@@ -29,20 +29,33 @@ public class UGCharactorIcon : MonoBehaviour,IPointerUpHandler
         }
     }
 
-    void Start()
-    {
-        UpdateGraphic();
-    }
-    
 
     private void UpdateGraphic()
     {
+        if (_viewId == -1)
+        {
+            characterImage.texture = null;
+            return;
+        }
+
         characterImage.texture = DataManager.Instance.CharacterDatabase.characters[ViewId].characterIcon;
         Debug.Log("UpdateIcon: " + ViewId);
     }
 
+
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("UGCharactorIcon OnPointerUp");
+        if (_viewId == -1)
+        {
+            Debug.Log("None Character Seted");
+            return;
+        }
+        Debug.Log("PartyCharacter OnPointerUp");
+    }
+
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("PartyCharacter OnPointerDown");
     }
 }

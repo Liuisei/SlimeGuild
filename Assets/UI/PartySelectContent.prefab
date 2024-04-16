@@ -160,10 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47a1917fab15964485d12edd58a536c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterImage: {fileID: 658958511155535377}
-  haveCountText: {fileID: 5537905619219045585}
+  characterImage: {fileID: 3233618338916541276}
+  levelText: {fileID: 5537905619219045585}
   characterId: 0
   characterSelectedPanel: {fileID: 3385151744712136878}
+  partyIndexText: {fileID: 4745896605134799992}
 --- !u!1 &1945686153549346712
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,8 +199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6666667, y: 0}
   m_AnchorMax: {x: 1, y: 0.35000002}
-  m_AnchoredPosition: {x: -0.5959015, y: -0.10720062}
-  m_SizeDelta: {x: 1.1917, y: -0.21409988}
+  m_AnchoredPosition: {x: -36.9701, y: 36.9309}
+  m_SizeDelta: {x: 2.0597, y: 0.1382}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6339796095524851493
 CanvasRenderer:
@@ -240,8 +241,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294914304
+  m_fontColor: {r: 0, g: 0.19210386, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -258,15 +259,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.6
+  m_fontSize: 18.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 5
   m_fontSizeMax: 72.8
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
-  m_VerticalAlignment: 1024
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -388,7 +389,7 @@ GameObject:
   - component: {fileID: 3458666898834535582}
   - component: {fileID: 4745896605134799992}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: PartyNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

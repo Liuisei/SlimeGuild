@@ -1,19 +1,18 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class BagManager : UIListManager<PartySelectContent>
+public class BagManager : UIListManager<BagContent>
 {
     protected override bool HasItem(int id)
     {
-        throw new NotImplementedException();
+        return DataManager.Instance.HasCharacter(id);
     }
 
     protected override List<int> GetOrderedIDList()
     {
-        throw new NotImplementedException();
+        return DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId).ToList();
     }
 
     protected override List<int> GetOrderedIDByHaveCountList()
@@ -26,8 +25,9 @@ public class BagManager : UIListManager<PartySelectContent>
         throw new NotImplementedException();
     }
 
-    protected override void UpdateItem(int Id)
+    protected override void UpdateItem(int index, int id)
     {
-        throw new NotImplementedException();
+        Debug.Log("UpdateItem"+index+" "+id);
+        ItemList[index].CharacterId = id;
     }
 }

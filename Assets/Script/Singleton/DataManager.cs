@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DataManager : Singleton<DataManager>
 {
@@ -12,7 +12,8 @@ public class DataManager : Singleton<DataManager>
     private int money;
 
     [SerializeField]
-    public List<PlayerCharacterData> PlayerCharacters = new List<PlayerCharacterData>();
+    public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
+
     [SerializeField]
     private List<int> darwCharacterResultList = new List<int>();
 
@@ -20,41 +21,37 @@ public class DataManager : Singleton<DataManager>
     private List<int> partyList = new List<int>();
 
     [SerializeField]
-    private List<int> selectPartyList = new List<int>();
-
-    [SerializeField]
     private int nowPower;
 
     [SerializeField]
     private int selectPartyCountMax = 5;
 
-    [SerializeField]
-    private int selectPartyCount = 0;
 
-
-    public Action OnMoneyChanged;
-    public Action OnHaveCharacterListChanged;
-    public Action OnGetCharacterListChanged;
+    public Action       OnMoneyChanged;
+    public Action       OnHaveCharacterListChanged;
+    public Action       OnGetCharacterListChanged;
+    public event Action OnPartyChanged;
 
     public override void AwakeFunction()
     {
+        for (int i = 0; i < characterDatabase.characters.Count; i++)
+        {
+            PlayerCharacterData newCharacter = new PlayerCharacterData
+            {
+                characterId = i, // 新しいキャラクターのIDをリストの現在の長さに設定
+                quantity = 0,
+                level = 1 // レベルは初期値として1を設定
+            };
+
+            playerCharacters.Add(newCharacter);
+        }
     }
 
     public bool IsPartyIndexMax()
     {
-        return selectPartyCount >= selectPartyCountMax;
+        return partyList.Where(e => e != -1).Count() >= selectPartyCountMax;
     }
 
-    public int SelectPartyIndex
-    {
-        get => selectPartyCount;
-        set => selectPartyCount = value;
-    }
-    public List<int> SelectPartyList
-    {
-        get => selectPartyList;
-        set => selectPartyList = value;
-    }
 
     public int Money
     {
@@ -68,10 +65,10 @@ public class DataManager : Singleton<DataManager>
 
     public List<PlayerCharacterData> PlayerCharacterDaraList
     {
-        get => PlayerCharacters;
+        get => playerCharacters;
         set
         {
-            PlayerCharacters = value;
+            playerCharacters = value;
             OnHaveCharacterListChanged?.Invoke();
         }
     }
@@ -96,25 +93,76 @@ public class DataManager : Singleton<DataManager>
 
     public bool HasCharacter(int index)
     {
-        return PlayerCharacterDaraList[index].Quantity > 0;
+        return PlayerCharacterDaraList[index].quantity > 0;
     }
-    
-    
+
+
     public Texture GetCharacterIconByIndex(int index)
     {
         return characterDatabase.characters[index].characterIcon;
     }
-    
+
     public int GetCharacterHaveCount(int index)
     {
-        return PlayerCharacterDaraList[index].Quantity;
+        return PlayerCharacterDaraList[index].quantity;
+    }
+
+    public int GetCharacterLevel(int index)
+    {
+        return PlayerCharacterDaraList[index].level;
+    }
+
+    public void AddPlayerCharacter(int quantity, int level)
+    {
+        PlayerCharacterData newCharacter = new PlayerCharacterData
+        {
+            characterId = playerCharacters.Count, // 新しいキャラクターのIDをリストの現在の長さに設定
+            quantity = quantity,
+            level = level
+        };
+
+        playerCharacters.Add(newCharacter);
+    }
+
+    public int AddSelectPartyList(int characterId)
+    {
+        for (int i = 0; i < partyList.Count; i++)
+        {
+            if (partyList[i] == -1)
+            {
+                partyList[i] = characterId;
+                OnPartyChanged?.Invoke();
+
+                return i+1;
+            }
+        }
+        return -2;
+    }
+
+    public void RemoveSelectPartyList(int characterId)
+    {
+        for (int i = 0; i < partyList.Count; i++)
+        {
+            if (partyList[i] == characterId)
+            {
+                partyList[i] = -1;
+                OnPartyChanged?.Invoke();
+
+                break;
+            }
+        }
+    }
+
+    public void PartySetUp()
+    {
+        Debug.Log("PartySetUp");
     }
 }
+
+[Serializable]
 public class PlayerCharacterData
 {
-    public int CharacterId { get; set; }
-    public int Quantity    { get; set; }
-    public int Level       { get; set; }
+    public int characterId; //キャラクターID
+    public int quantity;    //所持数
+    public int level;       //レベル
 }
-
-

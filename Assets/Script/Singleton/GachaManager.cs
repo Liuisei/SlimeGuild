@@ -9,12 +9,9 @@ public class GachaManager : Singleton<GachaManager>
     
     public void DrawGacha()
     {
-       
-        int index = Random.Range(0, DataManager.Instance.CharacterDatabase.characters.Count); // ランダムなインデックスを取得
-
-        DataManager.Instance.PlayerCharacters[index].Quantity++;  // ゲットしたキャラクターのインデックスをリストに追加
-
-        DataManager.Instance.GetCharacterList.Add(index); // ゲットしたキャラクターのインデックスをリストに追加
-        Debug.Log("ADD" + index);
+        int id = Random.Range(0, DataManager.Instance.CharacterDatabase.characters.Count); 
+        DataManager.Instance.playerCharacters[id].quantity++;  
+        DataManager.Instance.GetCharacterList.Add(id);
+        Debug.Log("ADD" + id);
     }
 }

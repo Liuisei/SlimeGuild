@@ -1,49 +1,54 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class PartySelectContent : MonoBehaviour,IPointerUpHandler
+public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownHandler
 {
     [SerializeField]
     private RawImage characterImage;
 
     [SerializeField]
-    private TextMeshProUGUI haveCountText;
-    
+    private TextMeshProUGUI levelText;
 
     [SerializeField]
     private int characterId;
-    
 
-    
     private bool _isSelected = false;
-    
+
     [SerializeField]
     private GameObject characterSelectedPanel;
     
-    
+    [FormerlySerializedAs("partyIndexText")]
+    [SerializeField]
+    private TextMeshProUGUI partyNumberText;
+
+
     public int CharacterId
     {
         set
         {
             characterId = value;
             UpdateCharacterImage();
-            UpdaterHaveCountText();
-        } 
+            UpdateLevelTextCountText();
+        }
     }
+
     private void Awake()
     {
         if (characterImage == null) Debug.LogError("CharacterImage is not set");
-        if (haveCountText == null) Debug.LogError("HaveCountText is not set");
+        if (levelText      == null) Debug.LogError("levelText is not set");
     }
+
     private void UpdateCharacterImage()
     {
         characterImage.texture = DataManager.Instance.CharacterDatabase.GetCharacter(characterId).characterIcon;
     }
-    private void UpdaterHaveCountText()
+
+    private void UpdateLevelTextCountText()
     {
-        haveCountText.SetText(DataManager.Instance.GetCharacterHaveCount(characterId).ToString());
+        levelText.SetText("X" + DataManager.Instance.GetCharacterHaveCount(characterId).ToString());
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -51,16 +56,21 @@ public class PartySelectContent : MonoBehaviour,IPointerUpHandler
         if (_isSelected == false)
         {
             if (DataManager.Instance.IsPartyIndexMax()) return;
-            DataManager.Instance.SelectPartyIndex++;
             _isSelected = true;
-            characterSelectedPanel.SetActive(true);
-            // DataManager.Instance.AddSelectPartyList(characterId);
+            characterSelectedPanel.SetActive(true); 
+            
+            partyNumberText.SetText(DataManager.Instance.AddSelectPartyList(characterId).ToString());
         }
         else
         {
             _isSelected = false;
             characterSelectedPanel.SetActive(false);
-            // DataManager.Instance.RemoveSelectPartyList(characterId);
+             DataManager.Instance.RemoveSelectPartyList(characterId);
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("PartySelectContent OnPointerDown");
     }
 }

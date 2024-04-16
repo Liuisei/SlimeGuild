@@ -321,8 +321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2ebaa47f1a5cc4c8b32ad6c0beedd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bagPrefab: {fileID: 0}
-  bagParent: {fileID: 1792814050853606300}
+  itemPrefab: {fileID: 1176767029550448671, guid: 7640c51ff308d55449f644c48fc98dfb, type: 3}
+  parentTransform: {fileID: 1792814050853606300}
 --- !u!1 &4646314705952933875
 GameObject:
   m_ObjectHideFlags: 0

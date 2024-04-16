@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2608500905516620121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 7610160439370667351}
   - component: {fileID: 594679005047489187}
   - component: {fileID: 1146511546115561322}
-  - component: {fileID: 1193151301791754425}
+  - component: {fileID: 1337490514732314873}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1193151301791754425
+--- !u!114 &1337490514732314873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1792171616895126656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78aef9894cf5fe74c81278831ee814ce, type: 3}
+  m_Script: {fileID: 11500000, guid: ec3143689b2cb0a49895db95de96baab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onButtonDown:
@@ -546,9 +546,9 @@ GameObject:
   - component: {fileID: 1091377317916742885}
   - component: {fileID: 8580147880196294905}
   - component: {fileID: 3649166624859694267}
-  - component: {fileID: 1880202392113895450}
+  - component: {fileID: 6322422703394747515}
   m_Layer: 5
-  m_Name: Bag
+  m_Name: PartyBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1880202392113895450
+--- !u!114 &6322422703394747515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -651,11 +651,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4388735373142198330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e2ebaa47f1a5cc4c8b32ad6c0beedd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f149f288a44e8a4aa3f5117521d9655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bagPrefab: {fileID: 1176767029550448671, guid: 50a6ef227f1f4b542ac368073a2054a1, type: 3}
-  bagParent: {fileID: 1792814050853606300}
+  itemPrefab: {fileID: 1176767029550448671, guid: 50a6ef227f1f4b542ac368073a2054a1, type: 3}
+  parentTransform: {fileID: 1792814050853606300}
 --- !u!1 &4646314705952933875
 GameObject:
   m_ObjectHideFlags: 0

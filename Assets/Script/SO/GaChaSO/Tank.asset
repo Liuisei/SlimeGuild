@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff78f3d3243b204d9a26ad331dc52db, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: 
-  ID: 3
-  characterName: "\u30BF\u30F3\u30AF"
+  characterId: 3
+  characterName: 0
   characterIcon: {fileID: 2800000, guid: c82cb56df0571704aa808be9a379619e, type: 3}
+  rarity: 0

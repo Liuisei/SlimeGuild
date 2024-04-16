@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class BtnGacha : MyButton
 {
     [SerializeField]
-    int price = 10;
+    private int price = 10;
 
     [SerializeField]
     private bool isTenGacha;

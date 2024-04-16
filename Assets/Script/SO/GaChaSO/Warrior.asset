@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df511472a9979bc45b3f04773e68f7e6, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
-  ID: 4
-  characterName: "\u6226\u58EB"
+  characterId: 4
+  characterName: 0
   characterIcon: {fileID: 2800000, guid: a7f47ee488e8cd340885042bcf96b565, type: 3}
+  rarity: 0

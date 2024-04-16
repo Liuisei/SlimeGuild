@@ -6,6 +6,7 @@ public class BtnClicker : MyButton
 {
     protected override void OnButtonUp()
     {
-        DataManager.Instance.Money+=DataManager.Instance.NowPower;
+        DataManager.Instance.Money += DataManager.Instance.NowPower;
+        Debug.Log("Money: " + DataManager.Instance.Money);
     }
 }

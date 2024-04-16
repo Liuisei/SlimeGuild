@@ -10,7 +10,7 @@ public class CSlimePaladin : GameCharacter
 
     public override int ActivateAbility(int value)
     {
-        return value * 2;
+        return value + 2;
     }
 
    

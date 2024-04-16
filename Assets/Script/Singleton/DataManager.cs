@@ -27,9 +27,9 @@ public class DataManager : Singleton<DataManager>
     private int selectPartyCountMax = 5;
 
 
-    public Action       OnMoneyChanged;
-    public Action       OnHaveCharacterListChanged;
-    public Action       OnGetCharacterListChanged;
+    public  Action OnMoneyChanged;
+    public  Action OnHaveCharacterListChanged;
+    public  Action OnGetCharacterListChanged;
     public event Action OnPartyChanged;
 
     public override void AwakeFunction()
@@ -53,6 +53,11 @@ public class DataManager : Singleton<DataManager>
     }
 
 
+    public int NowPower
+    {
+        get => nowPower;
+        set => nowPower = value;
+    }
     public int Money
     {
         get => money;
@@ -133,9 +138,10 @@ public class DataManager : Singleton<DataManager>
                 partyList[i] = characterId;
                 OnPartyChanged?.Invoke();
 
-                return i+1;
+                return i + 1;
             }
         }
+
         return -2;
     }
 
@@ -157,6 +163,7 @@ public class DataManager : Singleton<DataManager>
     {
         Debug.Log("PartySetUp");
     }
+    
 }
 
 [Serializable]

@@ -8,7 +8,10 @@ public class CSlimePink : GameCharacter
         get => "ピンクは、回復が得意なキャラクターです。";
     }
 
-    public override void ActivateAbility()
+    public override int ActivateAbility(int value)
     {
+        return value + 50;
     }
+
+ 
 }

@@ -46,5 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterDatabase: {fileID: 11400000, guid: 85bc4ddf7c96cd849b09108c56fc8326, type: 2}
   money: 1000
-  haveCharacterList: 0000000000000000000000000000000000000000
-  getCharacterList: 
+  playerCharacters: []
+  darwCharacterResultList: 
+  partyList: ffffffffffffffffffffffffffffffffffffffff
+  nowPower: 0
+  selectPartyCountMax: 5

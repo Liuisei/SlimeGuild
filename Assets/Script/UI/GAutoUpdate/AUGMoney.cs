@@ -1,16 +1,23 @@
 using System;
-
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 
-public class AUGMoney : AutoUpdateGraphic<TextMeshProUGUI>
+public class AUGMoney : MonoBehaviour
 {
-    protected override Action GetAction()
+    [SerializeField]
+    private TextMeshProUGUI textMeshProUGUI;
+    public void OnEnable()
     {
-        return DataManager.Instance.OnMoneyChanged;
+        DataManager.Instance.OnMoneyChanged += UpdateText;
+        UpdateText();
     }
-
-    protected override void UpdateGraphic()
+    public void OnDisable()
     {
-        GraphicComponent.SetText(DataManager.Instance.Money.ToString());
+        DataManager.Instance.OnMoneyChanged += UpdateText;
+    }
+    public void UpdateText()
+    {
+        textMeshProUGUI.text = DataManager.Instance.Money.ToString();
     }
 }

@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/0Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/0Scenes/0GameScene.unity
+    path: Assets/0Scenes/1GameScene.unity
     guid: 3de39fb7bea04dc4193dc35d61a54ad9
   - enabled: 1
-    path: Assets/0Scenes/1GaChilyaScene.unity
+    path: Assets/0Scenes/2GaChilyaScene.unity
     guid: d29040fcf0864c84e8f3d97adb831efc
   - enabled: 1
-    path: Assets/0Scenes/2OneGachilya.unity
+    path: Assets/0Scenes/3OneGachilya.unity
     guid: 117cd6a7f40844e468d7635aaa7aebba
   - enabled: 1
-    path: Assets/0Scenes/3TenGacha.unity
+    path: Assets/0Scenes/4TenGacha.unity
     guid: ae906da9f88cfa441b5fa89a7c684d5a
   - enabled: 1
-    path: Assets/0Scenes/4BagScene.unity
+    path: Assets/0Scenes/0Title.unity
     guid: 3cd09928e224cd34caddead026bc1005
   m_configObjects: {}

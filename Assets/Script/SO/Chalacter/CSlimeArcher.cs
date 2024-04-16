@@ -5,10 +5,13 @@ public class CSlimeArcher : GameCharacter
 {
     public override string Description
     {
-        get => "アーチャーは、遠距離攻撃が得意なキャラクターです。";
+        get => "アーチャーは、遠距離攻撃が得意なキャラクターです。+100";
     }
 
-    public override void ActivateAbility()
+    public override int ActivateAbility(int value)
     {
+        return value + 100;
     }
+
+ 
 }

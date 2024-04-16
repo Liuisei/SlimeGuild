@@ -49,9 +49,8 @@ public class BGMSoundData
 {
     public enum BGM
     {
-        Title,
-        Dungeon,
-        Hoge,
+        Title,　//titleで常に流れる
+        Neglect,　//戦闘sceneで常に流れる
     }
 
     public BGM _bgm;
@@ -63,9 +62,11 @@ public class SESoundData
 {
     public enum SE
     {
-        Gacha,
-        Damage,
-        Hoge,
+        Gacha,　//ガチャが回されたときに流す
+        Warrior, //この手に入れた後放置sceneで流す
+        Button,　//Buttonを押したときに流れる
+        ResultGacha,　//gachaのresultを出すときに流れる
+        ButtonClick, //Click用
     }
 
     public SE _se;

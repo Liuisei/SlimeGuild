@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8049161e331ea4cbbf56cf7fc42841, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: 
-  ID: 1
-  characterName: "\u9B54\u6CD5\u5C11\u5973"
+  characterId: 1
+  characterName: 0
   characterIcon: {fileID: 2800000, guid: 39b3dcba67728514fba26847894955c5, type: 3}
+  rarity: 0

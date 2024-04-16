@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdb18a06260fb844bb8891e1bfb9ee4, type: 3}
   m_Name: Pink
   m_EditorClassIdentifier: 
-  characterId: 0
+  characterId: 5
   characterName: 0
-  characterIcon: {fileID: 0}
+  characterIcon: {fileID: 2800000, guid: 5808b00dec785144e81a23fc4afd0ba8, type: 3}
   rarity: 0

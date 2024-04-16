@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a795e1d866749f4ab3039a81ff5d1e3, type: 3}
   m_Name: Paladin
   m_EditorClassIdentifier: 
-  ID: 2
-  characterName: "\u8056\u9A0E\u58EB"
+  characterId: 2
+  characterName: 0
   characterIcon: {fileID: 2800000, guid: 7f4d7f25433515e489bcd4ce35727403, type: 3}
+  rarity: 0

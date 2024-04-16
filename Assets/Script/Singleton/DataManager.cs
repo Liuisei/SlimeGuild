@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class DataManager : Singleton<DataManager>
     public Action       OnMoneyChanged;
     public Action       OnHaveCharacterListChanged;
     public Action       OnGetCharacterListChanged;
+    public Action       OnNowPowerChanged;
     public event Action OnPartyChanged;
 
     public override void AwakeFunction()
@@ -52,6 +54,29 @@ public class DataManager : Singleton<DataManager>
         return partyList.Where(e => e != -1).Count() >= selectPartyCountMax;
     }
 
+    //コルーチンを使って一秒に一回メソッドを呼び出す
+    public void Start()
+    {
+        StartCoroutine(UpdatePower());
+    }
+
+    IEnumerator UpdatePower()
+    {
+        yield return new WaitForSeconds(1);
+        Money += NowPower;
+        StartCoroutine(UpdatePower());
+    }
+
+
+    public int NowPower
+    {
+        get => nowPower;
+        set
+        {
+            nowPower = value;
+            OnNowPowerChanged?.Invoke();
+        }
+    }
 
     public int Money
     {
@@ -133,9 +158,10 @@ public class DataManager : Singleton<DataManager>
                 partyList[i] = characterId;
                 OnPartyChanged?.Invoke();
 
-                return i+1;
+                return i + 1;
             }
         }
+
         return -2;
     }
 
@@ -155,7 +181,13 @@ public class DataManager : Singleton<DataManager>
 
     public void PartySetUp()
     {
+        NowPower = 0;
         Debug.Log("PartySetUp");
+        for (int i = 0; i < selectPartyCountMax; i++)
+        {
+            if (partyList[i] == -1) continue;
+            NowPower = characterDatabase.characters[partyList[i]].ActivateAbility(NowPower);
+        }
     }
 }
 

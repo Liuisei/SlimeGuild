@@ -583,6 +583,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3568144983265312448, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
+      propertyPath: textMeshProUGUI
+      value: 
+      objectReference: {fileID: 9188090276423110313}
+    - target: {fileID: 3568144983265312448, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
       propertyPath: graphicComponent
       value: 
       objectReference: {fileID: 9188090276423110313}

@@ -9,7 +9,8 @@ public class CSlimeWarrior : GameCharacter
         get => "ウォリアーは、攻撃力が高く、敵を倒すことが得意なキャラクターです。";
     }
 
-    public override void ActivateAbility()
+    public override int ActivateAbility(int value)
     {
+        return value + 5;   
     }
 }

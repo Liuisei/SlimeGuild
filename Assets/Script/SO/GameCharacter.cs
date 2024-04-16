@@ -9,7 +9,7 @@ public abstract class GameCharacter : ScriptableObject
     public          int           rarity;                   //レア度
     public abstract string        Description { get;} // キャラクターの説明
     
-    public abstract void ActivateAbility(); // アビリティをアクティベートする抽象メソッド
+    public abstract int ActivateAbility(int value); // アビリティをアクティベートする抽象メソッド
 }
 
 public enum CharacterName

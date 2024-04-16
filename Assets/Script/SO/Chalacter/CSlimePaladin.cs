@@ -5,10 +5,13 @@ public class CSlimePaladin : GameCharacter
 {
     public override string Description
     {
-        get => "パラディンは、防御力が高く、味方を守ることが得意なキャラクターです。";
+        get => "パラディンは、防御力が高く、味方を守ることが得意なキャラクターです。*2";
     }
 
-    public override void ActivateAbility()
+    public override int ActivateAbility(int value)
     {
+        return value + 2;
     }
+
+   
 }

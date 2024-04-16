@@ -8,7 +8,10 @@ public class CSlimeTank : GameCharacter
         get => "タンクは、防御力が高く、敵の攻撃を受け止めることが得意なキャラクターです。";
     }
 
-    public override void ActivateAbility()
+    public override int ActivateAbility(int value)
     {
+        return value + 2;
     }
+
+  
 }

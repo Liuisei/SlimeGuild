@@ -1,15 +1,17 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Peasant", menuName = "Character/CSlimePeasant")]
-public class CSlimePeasant : GameCharacter
+[CreateAssetMenu(fileName = "Police", menuName = "Character/CSlimePolice")]
+public class CSlimePolice : GameCharacter
 {
     public override string Description
     {
-        get => "農家は、農作物を育てることが得意なキャラクターです。";
+        get => "警察は、治安を守ることが得意なキャラクターです";
     }
 
     public override int ActivateAbility(int level)
     {
         return 100 + level * 1 ;
+        
     }
 }
+

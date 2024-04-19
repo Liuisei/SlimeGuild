@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BagManager : UIListManager<BagContent>
+public class BagManager : UIListManager<CharacterView>
 {
     protected override bool HasItem(int id)
     {

@@ -7,25 +7,34 @@ using UnityEngine;
 [DefaultExecutionOrder(-1)]
 public class DataManager : Singleton<DataManager>
 {
-    [SerializeField] private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
+    [SerializeField]
+    private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
 
-    [SerializeField] private int money;
+    [SerializeField]
+    private int money;
 
-    [SerializeField] public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
+    [SerializeField]
+    public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
 
-    [SerializeField] private List<int> drawCharacterResultList = new List<int>();
+    [SerializeField]
+    private List<int> drawCharacterResultList = new List<int>();
 
-    [SerializeField] private List<int> partyList = new List<int>();
+    [SerializeField]
+    private List<int> partyList = new List<int>();
 
-    [SerializeField] private int nowPower;
+    [SerializeField]
+    private int nowPower;
 
-    [SerializeField] private int selectPartyCountMax = 5;
+    [SerializeField]
+    private int selectPartyCountMax = 5;
+    
+    private float _cooltime = 1.0f;
 
 
-    public Action OnMoneyChanged;
-    public Action OnHaveCharacterListChanged;
-    public Action OnGetCharacterListChanged;
-    public Action OnNowPowerChanged;
+    public Action       OnMoneyChanged;
+    public Action       OnHaveCharacterListChanged;
+    public Action       OnGetCharacterListChanged;
+    public Action       OnNowPowerChanged;
     public event Action OnPartyChanged;
 
     public override void AwakeFunction()
@@ -56,7 +65,7 @@ public class DataManager : Singleton<DataManager>
 
     IEnumerator UpdatePower()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(_cooltime);
         Money += NowPower;
         StartCoroutine(UpdatePower());
     }
@@ -118,7 +127,7 @@ public class DataManager : Singleton<DataManager>
 
     public Texture GetCharacterIconByIndex(int index)
     {
-        return characterDatabase.characters[index].characterIcon;
+        return characterDatabase.characters[index].textureSlime;
     }
 
     public int GetCharacterHaveCount(int index)
@@ -172,16 +181,21 @@ public class DataManager : Singleton<DataManager>
             }
         }
     }
+    
+    /// <summary>
+    /// gacha結果をリストに追加
+    /// </summary>
+    /// <param name="characterId"></param>
+    public void AddCharacter(int characterId)
+    {
+        playerCharacters[characterId].quantity++;
+        GetCharacterList.Add(characterId);
+        Debug.Log("GetCharacterList.Count:" + GetCharacterList.Count);
+    }
 
     public void PartySetUp()
     {
-        NowPower = 0;
-        Debug.Log("PartySetUp");
-        for (var i = 0; i < selectPartyCountMax; i++)
-        {
-            if (partyList[i] == -1) continue;
-            NowPower = characterDatabase.characters[partyList[i]].ActivateAbility(NowPower);
-        }
+
     }
 }
 
@@ -189,6 +203,6 @@ public class DataManager : Singleton<DataManager>
 public class PlayerCharacterData
 {
     public int characterId; //キャラクターID
-    public int quantity; //所持数
-    public int level; //レベル
+    public int quantity;    //所持数
+    public int level;       //レベル
 }

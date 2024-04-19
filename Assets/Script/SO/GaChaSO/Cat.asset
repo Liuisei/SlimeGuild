@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1defa77ca4d764d4d86cf726afeff807, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: 
+  characterId: 0
+  characterName: 4
+  rarity: 0
+  propertys: 00000000
+  textureSlime: {fileID: 2800000, guid: be19b5808badbbe42b6792f11f639f09, type: 3}
+  textureBack: {fileID: 2800000, guid: baf4efaefd9ee284dbf8e223c5dbf3e9, type: 3}
+  textureClothes: {fileID: 0}
+  textureHat: {fileID: 0}
+  textureWeaponRight: {fileID: 0}
+  textureWeaponLeft: {fileID: 0}

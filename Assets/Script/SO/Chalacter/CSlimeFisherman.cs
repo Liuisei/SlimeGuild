@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Police", menuName = "Character/CSlimePolice")]
-public class CSlimePolice : GameCharacter
+[CreateAssetMenu(fileName = "Fisherman", menuName = "Character/CSlimeFisherman")]
+public class CSlimeFisherman : GameCharacter
 {
     public override string Description
     {

@@ -1,17 +1,18 @@
+
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Police", menuName = "Character/CSlimePolice")]
-public class CSlimePolice : GameCharacter
+[CreateAssetMenu(fileName = "Cat", menuName = "Character/CSlimeCat")]
+public class CSlimeCat : GameCharacter
 {
     public override string Description
     {
-        get => "警察は、治安を守ることが得意なキャラクターです";
+        get => "猫は、Supporterでクールタイムを1+level*0.1短くします";
     }
 
     public override int ActivateAbility(int level)
     {
+        //猫は、Supporterでクールタイムを1+level*0.1短くします
         return 100 + level * 1 ;
-        
     }
 }
 

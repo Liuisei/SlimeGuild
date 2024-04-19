@@ -38,7 +38,7 @@ public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHand
             return;
         }
 
-        characterImage.texture = DataManager.Instance.CharacterDatabase.characters[ViewId].characterIcon;
+        characterImage.texture = DataManager.Instance.CharacterDatabase.characters[ViewId].textureSlime;
         Debug.Log("UpdateIcon: " + ViewId);
     }
 

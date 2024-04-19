@@ -1,17 +1,15 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Archer", menuName = "Character/CSlimeArcher")]
-public class CSlimeArcher : GameCharacter
+[CreateAssetMenu(fileName = "Peasant", menuName = "Character/CSlimePeasant")]
+public class CSlimePeasant : GameCharacter
 {
     public override string Description
     {
-        get => "アーチャーは、遠距離攻撃が得意なキャラクターです。+100";
+        get => "農家は、農作物を育てることが得意なキャラクターです。";
     }
 
-    public override int ActivateAbility(int value)
+    public override int ActivateAbility(int level)
     {
-        return value + 100;
+        return 100 + level * 1 ;
     }
-
- 
 }

@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GachaScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6674160367955528642, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 730f9dbe5f3f3984d95639ebc01a90e1, type: 3}
     - target: {fileID: 8778184774399218459, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25

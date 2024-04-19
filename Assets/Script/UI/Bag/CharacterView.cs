@@ -1,58 +1,83 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class BagContent : MonoBehaviour, IPointerUpHandler
+public class CharacterView : MonoBehaviour
 {
     [SerializeField]
-    private RawImage characterImage;
+    public RawImage textureRearity; // キャラクターのレアリティ
 
     [SerializeField]
-    private TextMeshProUGUI haveCountText;
+    public RawImage textureBack; // キャラクターの背景
 
     [SerializeField]
-    private TextMeshProUGUI levelText;
+    private RawImage textureSlime; // キャラクターのスライム
 
+    [SerializeField]
+    public RawImage textureClothes; // キャラクターの服
+
+    [SerializeField]
+    public RawImage textureHat; // キャラクターの帽子
+
+    [SerializeField]
+    public RawImage textureWeaponRight; // キャラクターの右手の武器
+
+    [SerializeField]
+    public RawImage textureWeaponLeft; // キャラクターの左手の武器
 
     [SerializeField]
     private int characterId;
 
+    private void Start()
+    {
+        RawImageUPdate();
+    }
 
     public int CharacterId
     {
         set
         {
             characterId = value;
-            UpdateCharacterImage();
-            UpdaterHaveCountText();
+            RawImageUPdate();
         }
     }
 
     private void Awake()
     {
-        if (characterImage == null) Debug.LogError("CharacterImage is not set");
-        if (haveCountText  == null) Debug.LogError("HaveCountText is not set");
-        if (levelText      == null) Debug.LogError("LevelText is not set");
+        if (textureRearity     == null) Debug.LogError("TextureRearity is not set");
+        if (textureBack        == null) Debug.LogError("TextureBack is not set");
+        if (textureSlime       == null) Debug.LogError("TextureSlime is not set");
+        if (textureClothes     == null) Debug.LogError("TextureClothes is not set");
+        if (textureHat         == null) Debug.LogError("TextureHat is not set");
+        if (textureWeaponRight == null) Debug.LogError("TextureWeaponRight is not set");
+        if (textureWeaponLeft  == null) Debug.LogError("TextureWeaponLeft is not set");
     }
 
-    private void UpdateCharacterImage()
+    public void RawImageUPdate()
     {
-        characterImage.texture = DataManager.Instance.CharacterDatabase.characters[characterId].TextureSlime;
+        var characterDatabaseCharacter = DataManager.Instance.CharacterDatabase.characters[characterId];
+        if (characterDatabaseCharacter != null)
+        {
+            SetTextureAlpha(textureRearity, DataManager.Instance.CharacterDatabase.rarityTextures[(int)characterDatabaseCharacter.rarity]);
+            SetTextureAlpha(textureBack, characterDatabaseCharacter.textureBack);
+            SetTextureAlpha(textureSlime, characterDatabaseCharacter.textureSlime);
+            SetTextureAlpha(textureClothes, characterDatabaseCharacter.textureClothes);
+            SetTextureAlpha(textureHat, characterDatabaseCharacter.textureHat);
+            SetTextureAlpha(textureWeaponRight, characterDatabaseCharacter.textureWeaponRight);
+            SetTextureAlpha(textureWeaponLeft, characterDatabaseCharacter.textureWeaponLeft);
+        }
+        else
+        {
+            Debug.LogError($"Character with ID {characterId} not found in the database.");
+        }
     }
 
-    private void UpdaterHaveCountText()
+    void SetTextureAlpha(RawImage image, Texture texture)
     {
-        haveCountText.SetText("X" + DataManager.Instance.GetCharacterHaveCount(characterId).ToString());
-    }
-
-    private void UpdateLevelText()
-    {
-        levelText.SetText("LV:" + DataManager.Instance.GetCharacterLevel(characterId).ToString());
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        Debug.Log("BagContent OnPointerUp");
+        image.texture = texture ?? image.texture;
+        image.color = new Color(image.color.r, image.color.g, image.color.b, texture ? 1 : 0);
     }
 }

@@ -12,6 +12,6 @@ public class UGGachaResult : UpdatableGraphic<RawImage>
     public override void UpdateGraphic()
     {
         DataManager.Instance.GetCharacterList.RemoveAt(0);
-        GraphicComponent.texture = DataManager.Instance.CharacterDatabase.characters[ViewId].characterIcon;
+        GraphicComponent.texture = DataManager.Instance.CharacterDatabase.characters[ViewId].textureSlime;
     }
 }

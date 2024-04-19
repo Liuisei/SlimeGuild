@@ -50,7 +50,7 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownH
     
     private void UpdateCharacterImage()
     {
-        characterImage.texture = DataManager.Instance.CharacterDatabase.GetCharacter(characterId).characterIcon;
+        characterImage.texture = DataManager.Instance.CharacterDatabase.characters[characterId].textureSlime;
     }
 
     private void UpdateLevelTextCountText()

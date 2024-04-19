@@ -2,45 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1)]
 public class DataManager : Singleton<DataManager>
 {
-    [SerializeField]
-    private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
+    [SerializeField] private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
 
-    [SerializeField]
-    private int money;
+    [SerializeField] private int money;
 
-    [SerializeField]
-    public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
+    [SerializeField] public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
 
-    [SerializeField]
-    private List<int> darwCharacterResultList = new List<int>();
+    [SerializeField] private List<int> drawCharacterResultList = new List<int>();
 
-    [SerializeField]
-    private List<int> partyList = new List<int>();
+    [SerializeField] private List<int> partyList = new List<int>();
 
-    [SerializeField]
-    private int nowPower;
+    [SerializeField] private int nowPower;
 
-    [SerializeField]
-    private int selectPartyCountMax = 5;
+    [SerializeField] private int selectPartyCountMax = 5;
 
 
-    public Action       OnMoneyChanged;
-    public Action       OnHaveCharacterListChanged;
-    public Action       OnGetCharacterListChanged;
-    public Action       OnNowPowerChanged;
+    public Action OnMoneyChanged;
+    public Action OnHaveCharacterListChanged;
+    public Action OnGetCharacterListChanged;
+    public Action OnNowPowerChanged;
     public event Action OnPartyChanged;
 
     public override void AwakeFunction()
     {
-        for (int i = 0; i < characterDatabase.characters.Count; i++)
+        for (var i = 0; i < characterDatabase.characters.Count; i++)
         {
-            PlayerCharacterData newCharacter = new PlayerCharacterData
+            var newCharacter = new PlayerCharacterData
             {
                 characterId = i, // 新しいキャラクターのIDをリストの現在の長さに設定
                 quantity = 0,
@@ -102,10 +94,10 @@ public class DataManager : Singleton<DataManager>
 
     public List<int> GetCharacterList
     {
-        get => darwCharacterResultList;
+        get => drawCharacterResultList;
         set
         {
-            darwCharacterResultList = value;
+            drawCharacterResultList = value;
             OnGetCharacterListChanged?.Invoke();
         }
     }
@@ -141,7 +133,7 @@ public class DataManager : Singleton<DataManager>
 
     public void AddPlayerCharacter(int quantity, int level)
     {
-        PlayerCharacterData newCharacter = new PlayerCharacterData
+        var newCharacter = new PlayerCharacterData
         {
             characterId = playerCharacters.Count, // 新しいキャラクターのIDをリストの現在の長さに設定
             quantity = quantity,
@@ -153,7 +145,7 @@ public class DataManager : Singleton<DataManager>
 
     public int AddSelectPartyList(int characterId)
     {
-        for (int i = 0; i < partyList.Count; i++)
+        for (var i = 0; i < partyList.Count; i++)
         {
             if (partyList[i] == -1)
             {
@@ -169,7 +161,7 @@ public class DataManager : Singleton<DataManager>
 
     public void RemoveSelectPartyList(int characterId)
     {
-        for (int i = 0; i < partyList.Count; i++)
+        for (var i = 0; i < partyList.Count; i++)
         {
             if (partyList[i] == characterId)
             {
@@ -185,7 +177,7 @@ public class DataManager : Singleton<DataManager>
     {
         NowPower = 0;
         Debug.Log("PartySetUp");
-        for (int i = 0; i < selectPartyCountMax; i++)
+        for (var i = 0; i < selectPartyCountMax; i++)
         {
             if (partyList[i] == -1) continue;
             NowPower = characterDatabase.characters[partyList[i]].ActivateAbility(NowPower);
@@ -197,6 +189,6 @@ public class DataManager : Singleton<DataManager>
 public class PlayerCharacterData
 {
     public int characterId; //キャラクターID
-    public int quantity;    //所持数
-    public int level;       //レベル
+    public int quantity; //所持数
+    public int level; //レベル
 }

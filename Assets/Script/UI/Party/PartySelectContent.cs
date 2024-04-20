@@ -1,43 +1,46 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownHandler
+public class PartySelectContent : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField]
-    private RawImage characterImage;
-    [SerializeField]
-    private TextMeshProUGUI levelText;
-    [SerializeField]
     private int characterId;
+
     private bool _isSelected = false;
+
     [SerializeField]
     private GameObject characterSelectedPanel;
-    
-    [FormerlySerializedAs("partyIndexText")]
+
+    [SerializeField]
+    private CharacterView characterView;
+
     [SerializeField]
     private TextMeshProUGUI partyNumberText;
-
     
-    public int CharacterId
+    [SerializeField]
+    private TextMeshProUGUI textLevel; // キャラクターのレベル
+
+
+    private void Start()
     {
-        set
-        {
-            characterId = value;
-            UpdateCharacterImage();
-            UpdateLevelTextCountText();
-            UpdateIsSelected();
-        }
+        UpdateIsSelected();
     }
 
-    private void Awake()
+    public void UpdatePartySelectContent(int id)
     {
-        if (characterImage == null) Debug.LogError("CharacterImage is not set");
-        if (levelText      == null) Debug.LogError("levelText is not set");
+        characterId = id;
+        characterView.CharacterId = id;
+        textLevel.text = "Lv:" + DataManager.Instance.GetCharacterLevel(id);
     }
 
+
+    /// <summary>
+    ///  パーティーに選択されているかどうかを更新する
+    /// </summary>
     private void UpdateIsSelected()
     {
         if (DataManager.Instance.PartyList.Contains(characterId))
@@ -47,16 +50,7 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownH
             partyNumberText.SetText(DataManager.Instance.PartyList.IndexOf(characterId).ToString());
         }
     }
-    
-    private void UpdateCharacterImage()
-    {
-        characterImage.texture = DataManager.Instance.CharacterDatabase.characters[characterId].textureSlime;
-    }
 
-    private void UpdateLevelTextCountText()
-    {
-        levelText.SetText("X" + DataManager.Instance.GetCharacterHaveCount(characterId).ToString());
-    }
 
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -64,15 +58,15 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler,IPointerDownH
         {
             if (DataManager.Instance.IsPartyIndexMax()) return;
             _isSelected = true;
-            characterSelectedPanel.SetActive(true); 
-            
+            characterSelectedPanel.SetActive(true);
+
             partyNumberText.SetText(DataManager.Instance.AddSelectPartyList(characterId).ToString());
         }
         else
         {
             _isSelected = false;
             characterSelectedPanel.SetActive(false);
-             DataManager.Instance.RemoveSelectPartyList(characterId);
+            DataManager.Instance.RemoveSelectPartyList(characterId);
         }
     }
 

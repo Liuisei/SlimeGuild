@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fisherman
   m_EditorClassIdentifier: 
   characterId: 2
-  characterName: 0
+  characterName: 2
   rarity: 2
   propertys: 
   textureSlime: {fileID: 2800000, guid: fad675762af01934196851da621535fc, type: 3}

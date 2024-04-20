@@ -120,26 +120,30 @@ public class DataManager : Singleton<DataManager>
         get => partyList;
         set => partyList = value;
     }
-
-    public bool HasCharacter(int index)
+    /// <summary>
+    /// CharacterDatabaseのcharactersリストのIDが一致するキャラクターの所持数を返す
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public bool HasCharacter(int id)
     {
-        return PlayerCharacterDaraList[index].quantity > 0;
+        return playerCharacters.Find(e => e.characterId == id).quantity > 0;
     }
 
 
-    public Texture GetCharacterIconByIndex(int index)
+    public Texture GetCharacterIconByIndex(int id)
     {
-        return characterDatabase.characters[index].textureSlime;
+        return characterDatabase.characters[id].textureSlime;
     }
 
-    public int GetCharacterHaveCount(int index)
+    public int GetCharacterQuantity(int id)
     {
-        return PlayerCharacterDaraList[index].quantity;
+        return playerCharacters.Find(e =>e.characterId == id).quantity;
     }
 
-    public int GetCharacterLevel(int index)
+    public int GetCharacterLevel(int id)
     {
-        return PlayerCharacterDaraList[index].level;
+        return playerCharacters.Find(e => e.characterId == id).level;
     }
 
     public void AddPlayerCharacter(int quantity, int level)
@@ -192,7 +196,7 @@ public class DataManager : Singleton<DataManager>
     {
         Debug.Log("characterId: " + characterId);
         // playerCharacters でIDが一致するキャラクターを取得
-        var character = playerCharacters.FirstOrDefault(e => e.characterId == characterId);
+        var character = playerCharacters.Find(e => e.characterId == characterId);
         character.quantity++;
         DrawCharacterResultList.Add(characterId);
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47ab93c4cf749fd8aa69ced681080f4, type: 3}
   m_Name: Fisherman
   m_EditorClassIdentifier: 
-  characterId: 0
+  characterId: 2
   characterName: 0
   rarity: 2
   propertys: 

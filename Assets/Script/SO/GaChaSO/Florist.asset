@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80d6334fb67402094db8796ee8bee59, type: 3}
   m_Name: Florist
   m_EditorClassIdentifier: 
-  characterId: 0
+  characterId: 3
   characterName: 0
   rarity: 3
   propertys: 

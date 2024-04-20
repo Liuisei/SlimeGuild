@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8928ac41a024b7789c4affc29f84093, type: 3}
   m_Name: Police
   m_EditorClassIdentifier: 
-  characterId: 0
+  characterId: 5
   characterName: 0
   rarity: 5
   propertys: 

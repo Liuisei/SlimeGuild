@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77419a23ba0917d4e986aaf3958b9489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textureRearity: {fileID: 658958511155535377}
   textureBack: {fileID: 4902070838087290150}
   textureSlime: {fileID: 4750281157335769726}
   textureClothes: {fileID: 8699099554257493133}

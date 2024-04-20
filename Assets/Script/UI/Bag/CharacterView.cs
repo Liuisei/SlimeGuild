@@ -58,7 +58,7 @@ public class CharacterView : MonoBehaviour
 
     public void RawImageUPdate()
     {
-        var characterDatabaseCharacter = DataManager.Instance.CharacterDatabase.characters[characterId];
+        var characterDatabaseCharacter = DataManager.Instance.CharacterDatabase.characters.Find(character => character.characterId == characterId);
         if (characterDatabaseCharacter != null)
         {
             SetTextureAlpha(textureRearity, DataManager.Instance.CharacterDatabase.rarityTextures[(int)characterDatabaseCharacter.rarity]);

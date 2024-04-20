@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fc54b6c65b4123a3cabc518b0ffc30, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
-  characterId: 0
+  characterId: 1
   characterName: 0
   rarity: 1
   propertys: 

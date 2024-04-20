@@ -18,7 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a934234865c4fea4ba4ea69214f90663, type: 2}
   - {fileID: 11400000, guid: f7bd264f395aa014695c2c2a66db5ff0, type: 2}
   - {fileID: 11400000, guid: 6a6ae82ab83684b409ed9092ef7d0229, type: 2}
-  - {fileID: 11400000, guid: 89fc062ec3948304f935d1365b482a8e, type: 2}
   - {fileID: 11400000, guid: 2a08e0e894666c54582726705dc652f7, type: 2}
   rarityTextures:
   - {fileID: 2800000, guid: 4a5ca1c78cf7ff24e88665784b4ab539, type: 3}

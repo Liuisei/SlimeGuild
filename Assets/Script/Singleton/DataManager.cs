@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [DefaultExecutionOrder(-1)]
 public class DataManager : Singleton<DataManager>
@@ -16,8 +17,9 @@ public class DataManager : Singleton<DataManager>
     [SerializeField]
     public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
 
+    [FormerlySerializedAs("drawCharacterResultList")]
     [SerializeField]
-    private List<int> drawCharacterResultList = new List<int>();
+    private List<int> drawCharacterResultResultList = new List<int>();
 
     [SerializeField]
     private List<int> partyList = new List<int>();
@@ -101,12 +103,12 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
-    public List<int> GetCharacterList
+    public List<int> DrawCharacterResultList
     {
-        get => drawCharacterResultList;
+        get => drawCharacterResultResultList;
         set
         {
-            drawCharacterResultList = value;
+            drawCharacterResultResultList = value;
             OnGetCharacterListChanged?.Invoke();
         }
     }
@@ -188,9 +190,21 @@ public class DataManager : Singleton<DataManager>
     /// <param name="characterId"></param>
     public void AddCharacter(int characterId)
     {
-        playerCharacters[characterId].quantity++;
-        GetCharacterList.Add(characterId);
-        Debug.Log("GetCharacterList.Count:" + GetCharacterList.Count);
+        Debug.Log("characterId: " + characterId);
+        // playerCharacters でIDが一致するキャラクターを取得
+        var character = playerCharacters.FirstOrDefault(e => e.characterId == characterId);
+        character.quantity++;
+        DrawCharacterResultList.Add(characterId);
+    }
+    /// <summary>
+    ///  ガチャ結果ゼロ番を取得して削除
+    /// </summary>
+    /// <returns></returns>
+    public int  ViewGachaResult()
+    {
+        var firstGet = DrawCharacterResultList[0];
+        DrawCharacterResultList.RemoveAt(0);
+        return firstGet;
     }
 
     public void PartySetUp()

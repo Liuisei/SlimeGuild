@@ -20,7 +20,7 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler, IPointerDown
 
     [SerializeField]
     private TextMeshProUGUI partyNumberText;
-    
+
     [SerializeField]
     private TextMeshProUGUI textLevel; // キャラクターのレベル
 
@@ -47,7 +47,7 @@ public class PartySelectContent : MonoBehaviour, IPointerUpHandler, IPointerDown
         {
             _isSelected = true;
             characterSelectedPanel.SetActive(true);
-            partyNumberText.SetText(DataManager.Instance.PartyList.IndexOf(characterId).ToString());
+            partyNumberText.SetText((1+DataManager.Instance.PartyList.IndexOf(characterId)).ToString());
         }
     }
 

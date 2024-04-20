@@ -37,7 +37,12 @@ public abstract class UIListManager<T> : MonoBehaviour
     }
 
     protected abstract bool      HasItem(int id);    // このメソッドは、リストにアイテムが存在するかどうかを確認するために使用されます。
-    protected abstract List<int> GetOrderedIDList(); // このメソッドは、アイテムのID順。
+    
+    /// <summary>
+    ///   このメソッドは、アイテムのID順。
+    /// </summary>
+    /// <returns></returns>
+    protected abstract List<int> GetOrderedIDList(); 
 
     protected abstract List<int> GetOrderedIDByHaveCountList(); // このメソッドは、アイテム所有数順。
 

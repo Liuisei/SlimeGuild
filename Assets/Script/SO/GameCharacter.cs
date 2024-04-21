@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,22 +8,25 @@ public abstract class GameCharacter : ScriptableObject
     public int            characterId;   // キャラクターのID
     public CharacterType  characterName; // キャラクターの名前
     public Rarity         rarity;        //レア度
-    public List<Property> propertys;      //属性
-
+    public List<Property> propertys;     //属性
+    public SkillType      skillType;     //スキルの種類
     public Texture textureSlime;       // キャラクターのアイコン
     public Texture textureBack;        // キャラクターの背景
     public Texture textureClothes;     // キャラクターの服
     public Texture textureHat;         // キャラクターの帽子
     public Texture textureWeaponRight; // キャラクターの右手の武器
     public Texture textureWeaponLeft;  // キャラクターの左手の武器
+    
+    public int     power;              // キャラクターのパワー
 
-
+    
     public abstract string Description { get; } // キャラクターの説明
 
-    public abstract int ActivateAbility(int level); // アビリティをアクティベートする抽象メソッド
+    public abstract void Buff(List<GameCharacter> targetGameCharacters); // bafferのスキル
+    public abstract int  PowerFunction(int level);         // キャラクターのパワー
 }
 
-public enum CharacterType//キャラクターの名前
+public enum CharacterType //キャラクターの名前
 {
     Peasant,     //農夫
     Police,      //警察
@@ -49,9 +53,10 @@ public enum CharacterType//キャラクターの名前
 
 public enum Property //属性
 {
-    SlimeCuntry,//スライム王国
-    BraveParty,//勇者パーティー
+    SlimeCuntry, //スライム王国
+    BraveParty,  //勇者パーティー
 }
+
 public enum SkillType
 {
     Attacker, //基本攻撃力を持ってるキャラクター,攻撃力の範囲は、1~1000

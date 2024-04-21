@@ -29,7 +29,7 @@ public class DataManager : Singleton<DataManager>
 
     [SerializeField]
     private int selectPartyCountMax = 5;
-    
+
     private float _cooltime = 1.0f;
 
 
@@ -120,6 +120,7 @@ public class DataManager : Singleton<DataManager>
         get => partyList;
         set => partyList = value;
     }
+
     /// <summary>
     /// CharacterDatabaseのcharactersリストのIDが一致するキャラクターの所持数を返す
     /// </summary>
@@ -138,7 +139,7 @@ public class DataManager : Singleton<DataManager>
 
     public int GetCharacterQuantity(int id)
     {
-        return playerCharacters.Find(e =>e.characterId == id).quantity;
+        return playerCharacters.Find(e => e.characterId == id).quantity;
     }
 
     public int GetCharacterLevel(int id)
@@ -187,7 +188,7 @@ public class DataManager : Singleton<DataManager>
             }
         }
     }
-    
+
     /// <summary>
     /// gacha結果をリストに追加
     /// </summary>
@@ -200,11 +201,12 @@ public class DataManager : Singleton<DataManager>
         character.quantity++;
         DrawCharacterResultList.Add(characterId);
     }
+
     /// <summary>
     ///  ガチャ結果ゼロ番を取得して削除
     /// </summary>
     /// <returns></returns>
-    public int  ViewGachaResult()
+    public int ViewGachaResult()
     {
         var firstGet = DrawCharacterResultList[0];
         DrawCharacterResultList.RemoveAt(0);
@@ -213,7 +215,16 @@ public class DataManager : Singleton<DataManager>
 
     public void PartySetUp()
     {
+        var party = PartyList.Where(e => e!=-1).Select(e => characterDatabase
+            .characters.Find(GC => GC.characterId == e)).ToList(); //パーティーリストのキャラクターIDを元にキャラクターデータを取得
+        party.ForEach(e => e.power = e.PowerFunction(GetCharacterLevel(e.characterId))); //パワーの設定
 
+        var partyBuffer   = party.Where(e => e.skillType == SkillType.Buffer).ToList();   //バッファーのキャラクターを取得
+        var partyAttacker = party.Where(e => e.skillType == SkillType.Attacker).ToList(); //アタッカーのキャラクターを取得
+
+        partyBuffer.ForEach(e => e.Buff(partyAttacker));
+        
+        NowPower = partyAttacker.Sum(e => e.power);
     }
 }
 

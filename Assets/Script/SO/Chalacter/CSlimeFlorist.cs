@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Florist", menuName = "Character/CSlimeFlorist")]
@@ -8,9 +9,15 @@ public class CSlimeFlorist : GameCharacter
         get => "花屋はバッファーで、属性Slimeconturyのキャラクターの攻撃力を上げることが得意なキャラクターです。";
     }
 
-    public override int ActivateAbility(int level)
+    public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        //slimeconturyのキャラクターの攻撃力を20+level*0.3上げる
-        return 20 + level * 3;
     }
+
+    public override int PowerFunction(int level)
+    {
+        return 100 + level * 1;
+        
+    }
+
+ 
 }

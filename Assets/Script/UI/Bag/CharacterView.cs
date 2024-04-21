@@ -58,10 +58,24 @@ public class CharacterView : MonoBehaviour
 
     public void RawImageUPdate()
     {
-        var characterDatabaseCharacter = DataManager.Instance.CharacterDatabase.characters.Find(character => character.characterId == characterId);
+        if (characterId == -1)
+        {
+            SetTextureAlpha(textureRearity, DataManager.Instance.CharacterDatabase.rarityTextures[0]);
+            SetTextureAlpha(textureBack, 0);
+            SetTextureAlpha(textureSlime, 0);
+            SetTextureAlpha(textureClothes, 0);
+            SetTextureAlpha(textureHat, 0);
+            SetTextureAlpha(textureWeaponRight, 0);
+            SetTextureAlpha(textureWeaponLeft, 0);
+            return;
+        }
+
+        var characterDatabaseCharacter =
+            DataManager.Instance.CharacterDatabase.characters.Find(character => character.characterId == characterId);
         if (characterDatabaseCharacter != null)
         {
-            SetTextureAlpha(textureRearity, DataManager.Instance.CharacterDatabase.rarityTextures[(int)characterDatabaseCharacter.rarity]);
+            SetTextureAlpha(textureRearity,
+                DataManager.Instance.CharacterDatabase.rarityTextures[(int)characterDatabaseCharacter.rarity]);
             SetTextureAlpha(textureBack, characterDatabaseCharacter.textureBack);
             SetTextureAlpha(textureSlime, characterDatabaseCharacter.textureSlime);
             SetTextureAlpha(textureClothes, characterDatabaseCharacter.textureClothes);
@@ -79,5 +93,10 @@ public class CharacterView : MonoBehaviour
     {
         image.texture = texture ?? image.texture;
         image.color = new Color(image.color.r, image.color.g, image.color.b, texture ? 1 : 0);
+    }
+
+    void SetTextureAlpha(RawImage image, int alpha)
+    {
+        image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
     }
 }

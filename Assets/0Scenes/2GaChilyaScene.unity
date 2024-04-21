@@ -480,6 +480,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3291943892838346507, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
+      propertyPath: gachaCharacters.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291943892838346507, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
+      propertyPath: gachaCharacters.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a08e0e894666c54582726705dc652f7, type: 2}
+    - target: {fileID: 3291943892838346507, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
+      propertyPath: gachaCharacters.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 89fc062ec3948304f935d1365b482a8e, type: 2}
+    - target: {fileID: 3291943892838346507, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
+      propertyPath: gachaCharacters.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a6ae82ab83684b409ed9092ef7d0229, type: 2}
+    - target: {fileID: 3291943892838346507, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
+      propertyPath: gachaCharacters.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: f7bd264f395aa014695c2c2a66db5ff0, type: 2}
+    - target: {fileID: 3291943892838346507, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
+      propertyPath: gachaCharacters.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: a934234865c4fea4ba4ea69214f90663, type: 2}
+    - target: {fileID: 3291943892838346507, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
+      propertyPath: gachaCharacters.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5aaf939228a63f4469235f52de90ed38, type: 2}
     - target: {fileID: 7159990292028619072, guid: 2e9e864e967c07842ac02d4176069152, type: 3}
       propertyPath: m_Name
       value: GachaManagerPrefub
@@ -594,6 +622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GachaScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6674160367955528642, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 730f9dbe5f3f3984d95639ebc01a90e1, type: 3}
     - target: {fileID: 8778184774399218459, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25

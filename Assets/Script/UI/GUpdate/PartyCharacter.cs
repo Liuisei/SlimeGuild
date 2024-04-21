@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
+    
     [SerializeField]
-    private RawImage characterImage;
+    private CharacterView characterViewPrefab;
 
     private int _viewId;
 
@@ -17,14 +18,15 @@ public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHand
         {
             _viewId = value;
             UpdateGraphic();
+            
         }
     }
 
     protected void Awake()
     {
-        if (characterImage == null)
+        if (characterViewPrefab == null)
         {
-            Debug.LogError("Graphic component is not assigned in " + gameObject.name);
+            Debug.LogError("CharacterViewPrefab is not set");
             enabled = false;
         }
     }
@@ -32,13 +34,7 @@ public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 
     private void UpdateGraphic()
     {
-        if (_viewId == -1)
-        {
-            characterImage.texture = null;
-            return;
-        }
-
-        characterImage.texture = DataManager.Instance.CharacterDatabase.characters[ViewId].characterIcon;
+        characterViewPrefab.CharacterId = _viewId;
         Debug.Log("UpdateIcon: " + ViewId);
     }
 

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80d6334fb67402094db8796ee8bee59, type: 3}
+  m_Name: Florist
+  m_EditorClassIdentifier: 
+  characterId: 3
+  characterName: 3
+  rarity: 3
+  propertys: 
+  textureSlime: {fileID: 2800000, guid: 3096006063944e44892105c902aba78a, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 0}
+  textureHat: {fileID: 2800000, guid: aad29c967e383a949b051f58dcf0b193, type: 3}
+  textureWeaponRight: {fileID: 2800000, guid: 7bec2bb2ae24fc24787d4c979554abe5, type: 3}
+  textureWeaponLeft: {fileID: 0}

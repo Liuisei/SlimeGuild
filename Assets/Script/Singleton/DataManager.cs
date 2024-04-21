@@ -3,29 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [DefaultExecutionOrder(-1)]
 public class DataManager : Singleton<DataManager>
 {
-    [SerializeField] private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
+    [SerializeField]
+    private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
 
-    [SerializeField] private int money;
+    [SerializeField]
+    private int money;
 
-    [SerializeField] public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
+    [SerializeField]
+    public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
 
-    [SerializeField] private List<int> drawCharacterResultList = new List<int>();
+    [FormerlySerializedAs("drawCharacterResultList")]
+    [SerializeField]
+    private List<int> drawCharacterResultResultList = new List<int>();
 
-    [SerializeField] private List<int> partyList = new List<int>();
+    [SerializeField]
+    private List<int> partyList = new List<int>();
 
-    [SerializeField] private int nowPower;
+    [SerializeField]
+    private int nowPower;
 
-    [SerializeField] private int selectPartyCountMax = 5;
+    [SerializeField]
+    private int selectPartyCountMax = 5;
+
+    private float _cooltime = 1.0f;
 
 
-    public Action OnMoneyChanged;
-    public Action OnHaveCharacterListChanged;
-    public Action OnGetCharacterListChanged;
-    public Action OnNowPowerChanged;
+    public Action       OnMoneyChanged;
+    public Action       OnHaveCharacterListChanged;
+    public Action       OnGetCharacterListChanged;
+    public Action       OnNowPowerChanged;
     public event Action OnPartyChanged;
 
     public override void AwakeFunction()
@@ -56,7 +67,7 @@ public class DataManager : Singleton<DataManager>
 
     IEnumerator UpdatePower()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(_cooltime);
         Money += NowPower;
         StartCoroutine(UpdatePower());
     }
@@ -92,12 +103,12 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
-    public List<int> GetCharacterList
+    public List<int> DrawCharacterResultList
     {
-        get => drawCharacterResultList;
+        get => drawCharacterResultResultList;
         set
         {
-            drawCharacterResultList = value;
+            drawCharacterResultResultList = value;
             OnGetCharacterListChanged?.Invoke();
         }
     }
@@ -110,25 +121,30 @@ public class DataManager : Singleton<DataManager>
         set => partyList = value;
     }
 
-    public bool HasCharacter(int index)
+    /// <summary>
+    /// CharacterDatabaseのcharactersリストのIDが一致するキャラクターの所持数を返す
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public bool HasCharacter(int id)
     {
-        return PlayerCharacterDaraList[index].quantity > 0;
+        return playerCharacters.Find(e => e.characterId == id).quantity > 0;
     }
 
 
-    public Texture GetCharacterIconByIndex(int index)
+    public Texture GetCharacterIconByIndex(int id)
     {
-        return characterDatabase.characters[index].characterIcon;
+        return characterDatabase.characters[id].textureSlime;
     }
 
-    public int GetCharacterHaveCount(int index)
+    public int GetCharacterQuantity(int id)
     {
-        return PlayerCharacterDaraList[index].quantity;
+        return playerCharacters.Find(e => e.characterId == id).quantity;
     }
 
-    public int GetCharacterLevel(int index)
+    public int GetCharacterLevel(int id)
     {
-        return PlayerCharacterDaraList[index].level;
+        return playerCharacters.Find(e => e.characterId == id).level;
     }
 
     public void AddPlayerCharacter(int quantity, int level)
@@ -173,15 +189,42 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
+    /// <summary>
+    /// gacha結果をリストに追加
+    /// </summary>
+    /// <param name="characterId"></param>
+    public void AddCharacter(int characterId)
+    {
+        Debug.Log("characterId: " + characterId);
+        // playerCharacters でIDが一致するキャラクターを取得
+        var character = playerCharacters.Find(e => e.characterId == characterId);
+        character.quantity++;
+        DrawCharacterResultList.Add(characterId);
+    }
+
+    /// <summary>
+    ///  ガチャ結果ゼロ番を取得して削除
+    /// </summary>
+    /// <returns></returns>
+    public int ViewGachaResult()
+    {
+        var firstGet = DrawCharacterResultList[0];
+        DrawCharacterResultList.RemoveAt(0);
+        return firstGet;
+    }
+
     public void PartySetUp()
     {
-        NowPower = 0;
-        Debug.Log("PartySetUp");
-        for (var i = 0; i < selectPartyCountMax; i++)
-        {
-            if (partyList[i] == -1) continue;
-            NowPower = characterDatabase.characters[partyList[i]].ActivateAbility(NowPower);
-        }
+        var party = PartyList.Where(e => e!=-1).Select(e => characterDatabase
+            .characters.Find(GC => GC.characterId == e)).ToList(); //パーティーリストのキャラクターIDを元にキャラクターデータを取得
+        party.ForEach(e => e.power = e.PowerFunction(GetCharacterLevel(e.characterId))); //パワーの設定
+
+        var partyBuffer   = party.Where(e => e.skillType == SkillType.Buffer).ToList();   //バッファーのキャラクターを取得
+        var partyAttacker = party.Where(e => e.skillType == SkillType.Attacker).ToList(); //アタッカーのキャラクターを取得
+
+        partyBuffer.ForEach(e => e.Buff(partyAttacker));
+        
+        NowPower = partyAttacker.Sum(e => e.power);
     }
 }
 
@@ -189,6 +232,6 @@ public class DataManager : Singleton<DataManager>
 public class PlayerCharacterData
 {
     public int characterId; //キャラクターID
-    public int quantity; //所持数
-    public int level; //レベル
+    public int quantity;    //所持数
+    public int level;       //レベル
 }

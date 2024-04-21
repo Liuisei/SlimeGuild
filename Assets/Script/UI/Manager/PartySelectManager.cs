@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PartySelectManager : UIListManager<PartySelectContent>
 {
-    
     protected override bool HasItem(int id)
     {
         return DataManager.Instance.HasCharacter(id);
@@ -28,9 +27,7 @@ public class PartySelectManager : UIListManager<PartySelectContent>
 
     protected override void UpdateItem(int index, int id)
     {
-        Debug.Log("UpdateItem"+index+" "+id);
-        ItemList[index].CharacterId = id;
+        Debug.Log("UpdateItem" + index + " " + id);
+        ItemList[index].UpdatePartySelectContent(id);
     }
-    
-    
 }

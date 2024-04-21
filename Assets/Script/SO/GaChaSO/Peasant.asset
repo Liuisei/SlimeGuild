@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a319625571c17ec49ad17f48619f6646, type: 3}
+  m_Name: Peasant
+  m_EditorClassIdentifier: 
+  characterId: 4
+  characterName: 0
+  rarity: 4
+  propertys: 
+  textureSlime: {fileID: 2800000, guid: a59484e962912d9438f2532a93af31ef, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 2800000, guid: cac74f9b2f0645d4d9dc94f24244b1a0, type: 3}
+  textureHat: {fileID: 2800000, guid: 8cf08d8d37a80f041a4e820f27dfb9b2, type: 3}
+  textureWeaponRight: {fileID: 2800000, guid: 93c0b95b3a6373b43ad092b24ae4fb71, type: 3}
+  textureWeaponLeft: {fileID: 0}

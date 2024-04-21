@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BagManager : UIListManager<BagContent>
+public class BagManager : UIListManager<BagView>
 {
     protected override bool HasItem(int id)
     {
@@ -12,7 +12,9 @@ public class BagManager : UIListManager<BagContent>
 
     protected override List<int> GetOrderedIDList()
     {
-        return DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId).ToList();
+        //DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId)ID順番にソート
+
+        return DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId).OrderBy(e => e).ToList();
     }
 
     protected override List<int> GetOrderedIDByHaveCountList()
@@ -27,7 +29,7 @@ public class BagManager : UIListManager<BagContent>
 
     protected override void UpdateItem(int index, int id)
     {
-        Debug.Log("UpdateItem"+index+" "+id);
-        ItemList[index].CharacterId = id;
+        Debug.Log("UpdateItem" + index + " " + id);
+        ItemList[index].SetBagData(id);
     }
 }

@@ -6,18 +6,15 @@ public class CSlimePeasant : GameCharacter
 {
     public override string Description
     {
-        get => "農家は、農作物を育てることが得意なキャラクターです。";
+        get => "Farmers are characters who are good at growing crops.";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        
     }
 
     public override int PowerFunction(int level)
     {
-        return 100 + level * 1 ;
+        return 100 + level * 1;
     }
-
-
 }

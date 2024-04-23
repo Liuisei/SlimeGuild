@@ -6,7 +6,7 @@ public class CSlimeFisherman : GameCharacter
 {
     public override string Description
     {
-        get => "警察は、治安を守ることが得意なキャラクターです";
+        get => "Police are characters who are good at protecting public order.";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)

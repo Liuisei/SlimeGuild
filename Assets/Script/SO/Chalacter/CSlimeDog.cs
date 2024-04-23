@@ -6,7 +6,7 @@ public class CSlimeDog : GameCharacter
 {
     public override string Description
     {
-        get => "犬は、属性勇者パーティーとスライム王国に属してます。";
+        get => "The dog belongs to the attribute hero party and the slime kingdom.";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)

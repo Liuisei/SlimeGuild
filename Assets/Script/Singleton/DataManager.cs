@@ -9,54 +9,57 @@ using UnityEngine.Serialization;
 public class DataManager : Singleton<DataManager>
 {
     [SerializeField]
-    private CharacterDatabase characterDatabase; // CharacterDatabaseの参照
+    private CharacterDatabase _characterDatabaseSiriSF; // CharacterDatabaseの参照
 
     [SerializeField]
-    private int money;
+    private int _moneySiriSF;
 
     [SerializeField]
-    public List<PlayerCharacterData> playerCharacters = new List<PlayerCharacterData>();
-
-    [FormerlySerializedAs("drawCharacterResultList")]
-    [SerializeField]
-    private List<int> drawCharacterResultResultList = new List<int>();
+    public List<PlayerCharacterData> _playerCharactersSiriSF = new List<PlayerCharacterData>();
 
     [SerializeField]
-    private List<int> partyList = new List<int>();
+    private List<int> _drawCharacterResultResultListSiriSF = new List<int>();
 
     [SerializeField]
-    private int nowPower;
+    private List<int> _partyListSiriSF = new List<int>();
 
     [SerializeField]
-    private int selectPartyCountMax = 5;
+    private int _nowPowerSiriSF;
+
+    [SerializeField]
+    private int _selectPartyCountMaxSiriSF = 5;
+    
+    [SerializeField] 
+    GameObject _detilSF;
 
     private float _cooltime = 1.0f;
 
 
-    public Action       OnMoneyChanged;
-    public Action       OnHaveCharacterListChanged;
-    public Action       OnGetCharacterListChanged;
-    public Action       OnNowPowerChanged;
+    public Action OnMoneyChanged;
+    public Action OnHaveCharacterListChanged;
+    public Action OnGetCharacterListChanged;
+    public Action OnNowPowerChanged;
+
     public event Action OnPartyChanged;
 
     public override void AwakeFunction()
     {
-        for (var i = 0; i < characterDatabase.characters.Count; i++)
+        for (var i = 0; i < _characterDatabaseSiriSF.characters.Count; i++)
         {
             var newCharacter = new PlayerCharacterData
             {
-                characterId = i, // 新しいキャラクターのIDをリストの現在の長さに設定
-                quantity = 0,
-                level = 1 // レベルは初期値として1を設定
+                _characterIdSiriSF = i, // 新しいキャラクターのIDをリストの現在の長さに設定
+                _quantitySiriSF    = 0,
+                _levelSiriSF       = 1 // レベルは初期値として1を設定
             };
 
-            playerCharacters.Add(newCharacter);
+            _playerCharactersSiriSF.Add(newCharacter);
         }
     }
 
     public bool IsPartyIndexMax()
     {
-        return partyList.Where(e => e != -1).Count() >= selectPartyCountMax;
+        return _partyListSiriSF.Where(e => e != -1).Count() >= _selectPartyCountMaxSiriSF;
     }
 
     //コルーチンを使って一秒に一回メソッドを呼び出す
@@ -75,50 +78,50 @@ public class DataManager : Singleton<DataManager>
 
     public int NowPower
     {
-        get => nowPower;
+        get => _nowPowerSiriSF;
         set
         {
-            nowPower = value;
+            _nowPowerSiriSF = value;
             OnNowPowerChanged?.Invoke();
         }
     }
 
     public int Money
     {
-        get => money;
+        get => _moneySiriSF;
         set
         {
-            money = value;
+            _moneySiriSF = value;
             OnMoneyChanged?.Invoke();
         }
     }
 
     public List<PlayerCharacterData> PlayerCharacterDaraList
     {
-        get => playerCharacters;
+        get => _playerCharactersSiriSF;
         set
         {
-            playerCharacters = value;
+            _playerCharactersSiriSF = value;
             OnHaveCharacterListChanged?.Invoke();
         }
     }
 
     public List<int> DrawCharacterResultList
     {
-        get => drawCharacterResultResultList;
+        get => _drawCharacterResultResultListSiriSF;
         set
         {
-            drawCharacterResultResultList = value;
+            _drawCharacterResultResultListSiriSF = value;
             OnGetCharacterListChanged?.Invoke();
         }
     }
 
-    public CharacterDatabase CharacterDatabase => characterDatabase;
+    public CharacterDatabase CharacterDatabase => _characterDatabaseSiriSF;
 
     public List<int> PartyList
     {
-        get => partyList;
-        set => partyList = value;
+        get => _partyListSiriSF;
+        set => _partyListSiriSF = value;
     }
 
     /// <summary>
@@ -128,44 +131,49 @@ public class DataManager : Singleton<DataManager>
     /// <returns></returns>
     public bool HasCharacter(int id)
     {
-        return playerCharacters.Find(e => e.characterId == id).quantity > 0;
+        return _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == id)._quantitySiriSF > 0;
     }
 
 
     public Texture GetCharacterIconByIndex(int id)
     {
-        return characterDatabase.characters[id].textureSlime;
+        return _characterDatabaseSiriSF.characters[id].textureSlime;
     }
 
     public int GetCharacterQuantity(int id)
     {
-        return playerCharacters.Find(e => e.characterId == id).quantity;
+        return _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == id)._quantitySiriSF;
     }
 
     public int GetCharacterLevel(int id)
     {
-        return playerCharacters.Find(e => e.characterId == id).level;
+        return _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == id)._levelSiriSF;
+    }
+
+    public string GetCharacterDetails(int id)
+    {
+        return _characterDatabaseSiriSF.characters.Find(e => e.characterId == id).Description;
     }
 
     public void AddPlayerCharacter(int quantity, int level)
     {
         var newCharacter = new PlayerCharacterData
         {
-            characterId = playerCharacters.Count, // 新しいキャラクターのIDをリストの現在の長さに設定
-            quantity = quantity,
-            level = level
+            _characterIdSiriSF = _playerCharactersSiriSF.Count, // 新しいキャラクターのIDをリストの現在の長さに設定
+            _quantitySiriSF    = quantity,
+            _levelSiriSF       = level
         };
 
-        playerCharacters.Add(newCharacter);
+        _playerCharactersSiriSF.Add(newCharacter);
     }
 
     public int AddSelectPartyList(int characterId)
     {
-        for (var i = 0; i < partyList.Count; i++)
+        for (var i = 0; i < _partyListSiriSF.Count; i++)
         {
-            if (partyList[i] == -1)
+            if (_partyListSiriSF[i] == -1)
             {
-                partyList[i] = characterId;
+                _partyListSiriSF[i] = characterId;
                 OnPartyChanged?.Invoke();
 
                 return i + 1;
@@ -177,11 +185,11 @@ public class DataManager : Singleton<DataManager>
 
     public void RemoveSelectPartyList(int characterId)
     {
-        for (var i = 0; i < partyList.Count; i++)
+        for (var i = 0; i < _partyListSiriSF.Count; i++)
         {
-            if (partyList[i] == characterId)
+            if (_partyListSiriSF[i] == characterId)
             {
-                partyList[i] = -1;
+                _partyListSiriSF[i] = -1;
                 OnPartyChanged?.Invoke();
 
                 break;
@@ -197,8 +205,8 @@ public class DataManager : Singleton<DataManager>
     {
         Debug.Log("characterId: " + characterId);
         // playerCharacters でIDが一致するキャラクターを取得
-        var character = playerCharacters.Find(e => e.characterId == characterId);
-        character.quantity++;
+        var character = _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == characterId);
+        character._quantitySiriSF++;
         DrawCharacterResultList.Add(characterId);
     }
 
@@ -213,17 +221,23 @@ public class DataManager : Singleton<DataManager>
         return firstGet;
     }
 
+    public void DetialSPawn(int id)
+    {
+         GameObject newdetail = Instantiate(_detilSF, new Vector3(0, 0, 0), Quaternion.identity);
+         newdetail.GetComponentInChildren<DetailsView>().OpenDaetails(id);
+    }
+
     public void PartySetUp()
     {
-        var party = PartyList.Where(e => e!=-1).Select(e => characterDatabase
-            .characters.Find(GC => GC.characterId == e)).ToList(); //パーティーリストのキャラクターIDを元にキャラクターデータを取得
+        var party = PartyList.Where(e => e != -1).Select(e => _characterDatabaseSiriSF
+            .characters.Find(gc => gc.characterId == e)).ToList(); //パーティーリストのキャラクターIDを元にキャラクターデータを取得
         party.ForEach(e => e.power = e.PowerFunction(GetCharacterLevel(e.characterId))); //パワーの設定
 
         var partyBuffer   = party.Where(e => e.skillType == SkillType.Buffer).ToList();   //バッファーのキャラクターを取得
         var partyAttacker = party.Where(e => e.skillType == SkillType.Attacker).ToList(); //アタッカーのキャラクターを取得
 
         partyBuffer.ForEach(e => e.Buff(partyAttacker));
-        
+
         NowPower = partyAttacker.Sum(e => e.power);
     }
 }
@@ -231,7 +245,7 @@ public class DataManager : Singleton<DataManager>
 [Serializable]
 public class PlayerCharacterData
 {
-    public int characterId; //キャラクターID
-    public int quantity;    //所持数
-    public int level;       //レベル
+    public int _characterIdSiriSF; //キャラクターID
+    public int _quantitySiriSF;    //所持数
+    public int _levelSiriSF;       //レベル
 }

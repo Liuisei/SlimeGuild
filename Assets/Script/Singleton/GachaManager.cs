@@ -8,12 +8,12 @@ public class GachaManager : Singleton<GachaManager>
 
     public Dictionary<Rarity, float> rarityProbabilities = new Dictionary<Rarity, float>()
     {
-        { Rarity.C, 50.0f },  // コモン
-        { Rarity.N, 25.0f },  // ノーマル
-        { Rarity.R, 3.89f },  // レア
-        { Rarity.SR, 1f },    // スーパーレア
+        { Rarity.C, 50.0f }, // コモン
+        { Rarity.N, 25.0f }, // ノーマル
+        { Rarity.R, 3.89f }, // レア
+        { Rarity.SR, 1f }, // スーパーレア
         { Rarity.SSR, 0.1f }, // スーパースーパーレア
-        { Rarity.UR, 0.01f }  // ウルトラレア
+        { Rarity.UR, 0.01f } // ウルトラレア
     };
 
     //このガチャに入るキャラクターのリスト
@@ -29,7 +29,7 @@ public class GachaManager : Singleton<GachaManager>
         // レアリティを決定
         Rarity drawnRarity = DetermineRarity();
         Debug.Log(drawnRarity);
-        
+
         List<GameCharacter> charactersOfDrawnRarity = gachaCharacters
             .Where(e => e.rarity == drawnRarity).ToList(); // 決定したレアリティのキャラクターのリストを取得
 
@@ -40,7 +40,7 @@ public class GachaManager : Singleton<GachaManager>
     }
 
     private Rarity DetermineRarity()
-    {
+    {;
         float randomValue = Random.Range(0.001f, 100.0f);
         Debug.Log(randomValue);
         if (randomValue <= rarityProbabilities[Rarity.UR]) return Rarity.UR;

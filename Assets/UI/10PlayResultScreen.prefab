@@ -367,10 +367,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6958885685000701611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00021076, y: 0}
-  m_SizeDelta: {x: 103.48, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.00020980835, y: 0}
+  m_SizeDelta: {x: -0.51999664, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1553015094989212178
 CanvasRenderer:
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
+  m_fontSize: 26.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d17b4e3fa42dc43b190a67a07ef7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphicComponent: {fileID: 7601453699554076227}
+  textMeshProUGUI: {fileID: 0}
 --- !u!1 &1815310946230924111
 GameObject:
   m_ObjectHideFlags: 0

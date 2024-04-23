@@ -230,14 +230,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77419a23ba0917d4e986aaf3958b9489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textureRearity: {fileID: 658958511155535377}
-  textureBack: {fileID: 4902070838087290150}
-  textureSlime: {fileID: 4750281157335769726}
-  textureClothes: {fileID: 8699099554257493133}
-  textureHat: {fileID: 5473184396840375633}
-  textureWeaponRight: {fileID: 5044242865938281592}
-  textureWeaponLeft: {fileID: 4529909143874971533}
-  characterId: 1
+  _textureRearitySF: {fileID: 658958511155535377}
+  _textureBackSF: {fileID: 4902070838087290150}
+  _textureSlimeSF: {fileID: 4750281157335769726}
+  _textureClothesSF: {fileID: 8699099554257493133}
+  _textureHatSF: {fileID: 5473184396840375633}
+  _textureWeaponRightSF: {fileID: 5044242865938281592}
+  _textureWeaponLeftSF: {fileID: 4529909143874971533}
+  _characterIdSF: 0
 --- !u!114 &8480815342704668346
 MonoBehaviour:
   m_ObjectHideFlags: 0

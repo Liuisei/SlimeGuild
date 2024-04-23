@@ -10,5 +10,6 @@ public class BtnDestory : MyButton
     protected override void OnButtonUp()
     {
         Destroy(_target);
+        DataManager.Instance.PartySetUp();
     }
 }

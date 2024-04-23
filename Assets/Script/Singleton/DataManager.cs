@@ -36,8 +36,7 @@ public class DataManager : Singleton<DataManager>
 
 
     public Action OnMoneyChanged;
-    public Action OnHaveCharacterListChanged;
-    public Action OnGetCharacterListChanged;
+    public Action OnPlayerCharacterListChanged;
     public Action OnNowPowerChanged;
 
     public event Action OnPartyChanged;
@@ -102,7 +101,6 @@ public class DataManager : Singleton<DataManager>
         set
         {
             _playerCharactersSiriSF = value;
-            OnHaveCharacterListChanged?.Invoke();
         }
     }
 
@@ -112,7 +110,6 @@ public class DataManager : Singleton<DataManager>
         set
         {
             _drawCharacterResultResultListSiriSF = value;
-            OnGetCharacterListChanged?.Invoke();
         }
     }
 
@@ -182,6 +179,8 @@ public class DataManager : Singleton<DataManager>
 
         return -2;
     }
+    
+    
 
     public void RemoveSelectPartyList(int characterId)
     {
@@ -220,11 +219,19 @@ public class DataManager : Singleton<DataManager>
         DrawCharacterResultList.RemoveAt(0);
         return firstGet;
     }
+    
+    public void LevelUp(int id)
+    {
+        var character = PlayerCharacterDaraList.Find(e => e._characterIdSiriSF == id);
+        character._quantitySiriSF -= character._levelSiriSF * 100;
+        character._levelSiriSF++;
+        OnPlayerCharacterListChanged?.Invoke();
+    }
 
     public void DetialSPawn(int id)
     {
          GameObject newdetail = Instantiate(_detilSF, new Vector3(0, 0, 0), Quaternion.identity);
-         newdetail.GetComponentInChildren<DetailsView>().OpenDaetails(id);
+         newdetail.GetComponentInChildren<DetailsView>().ID=id;
     }
 
     public void PartySetUp()

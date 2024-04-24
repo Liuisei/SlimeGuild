@@ -7,15 +7,22 @@ public class CSlimeFlorist : GameCharacter
     public override string Description
     {
         get =>
-            "Flower is a buffer character that is good at increasing the attack power of characters with the attribute Slimecontury.";
+            $"皆が大好きな花屋さん、スライム王国のアイドルだ。"                     +
+            $"\n{Property.SlimeCuntry}に攻撃力+{PowerFunction()}" +
+            $"\n加護：スライム王国";
+    }
+
+    public override string Tip
+    {
+        get => $"攻撃力：{power}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
     }
 
-    public override int PowerFunction(int level)
+    public override int PowerFunction()
     {
-        return 100 + level * 1;
+        return 100 + Getlevel() * 2;
     }
 }

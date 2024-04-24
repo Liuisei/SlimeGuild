@@ -17,13 +17,25 @@ public abstract class GameCharacter : ScriptableObject
     public Texture textureWeaponRight; // キャラクターの右手の武器
     public Texture textureWeaponLeft;  // キャラクターの左手の武器
     
-    public int     power;              // キャラクターのパワー
+    public int     power = 0;              // キャラクターのパワー
 
     
     public abstract string Description { get; } // キャラクターの説明
+    public abstract string Tip { get; } // キャラクターのヒント
 
     public abstract void Buff(List<GameCharacter> targetGameCharacters); // bafferのスキル
-    public abstract int  PowerFunction(int level);         // キャラクターのパワー
+    public abstract int  PowerFunction();         // キャラクターのパワー
+
+
+    protected int Getlevel()
+    {
+        return DataManager.Instance.GetCharacterLevel(characterId);
+    }
+
+    public void ResetPower()
+    {
+        power = PowerFunction();
+    }
 }
 
 public enum CharacterType //キャラクターの名前

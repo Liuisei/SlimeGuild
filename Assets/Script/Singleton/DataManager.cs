@@ -28,8 +28,8 @@ public class DataManager : Singleton<DataManager>
 
     [SerializeField]
     private int _selectPartyCountMaxSiriSF = 5;
-    
-    [SerializeField] 
+
+    [SerializeField]
     GameObject _detilSF;
 
     private float _cooltime = 1.0f;
@@ -98,19 +98,13 @@ public class DataManager : Singleton<DataManager>
     public List<PlayerCharacterData> PlayerCharacterDaraList
     {
         get => _playerCharactersSiriSF;
-        set
-        {
-            _playerCharactersSiriSF = value;
-        }
+        set { _playerCharactersSiriSF = value; }
     }
 
     public List<int> DrawCharacterResultList
     {
         get => _drawCharacterResultResultListSiriSF;
-        set
-        {
-            _drawCharacterResultResultListSiriSF = value;
-        }
+        set { _drawCharacterResultResultListSiriSF = value; }
     }
 
     public CharacterDatabase CharacterDatabase => _characterDatabaseSiriSF;
@@ -151,6 +145,10 @@ public class DataManager : Singleton<DataManager>
     {
         return _characterDatabaseSiriSF.characters.Find(e => e.characterId == id).Description;
     }
+    public string GetCharacterTip(int id)
+    {
+        return _characterDatabaseSiriSF.characters.Find(e => e.characterId == id).Tip;
+    }
 
     public void AddPlayerCharacter(int quantity, int level)
     {
@@ -179,8 +177,7 @@ public class DataManager : Singleton<DataManager>
 
         return -2;
     }
-    
-    
+
 
     public void RemoveSelectPartyList(int characterId)
     {
@@ -219,7 +216,7 @@ public class DataManager : Singleton<DataManager>
         DrawCharacterResultList.RemoveAt(0);
         return firstGet;
     }
-    
+
     public void LevelUp(int id)
     {
         var character = PlayerCharacterDaraList.Find(e => e._characterIdSiriSF == id);
@@ -230,20 +227,20 @@ public class DataManager : Singleton<DataManager>
 
     public void DetialSPawn(int id)
     {
-         GameObject newdetail = Instantiate(_detilSF, new Vector3(0, 0, 0), Quaternion.identity);
-         newdetail.GetComponentInChildren<DetailsView>().ID=id;
+        GameObject newdetail = Instantiate(_detilSF, new Vector3(0, 0, 0), Quaternion.identity);
+        newdetail.GetComponentInChildren<DetailsView>().ID = id;
     }
 
     public void PartySetUp()
     {
         var party = PartyList.Where(e => e != -1).Select(e => _characterDatabaseSiriSF
             .characters.Find(gc => gc.characterId == e)).ToList(); //パーティーリストのキャラクターIDを元にキャラクターデータを取得
-        party.ForEach(e => e.power = e.PowerFunction(GetCharacterLevel(e.characterId))); //パワーの設定
 
         var partyBuffer   = party.Where(e => e.skillType == SkillType.Buffer).ToList();   //バッファーのキャラクターを取得
         var partyAttacker = party.Where(e => e.skillType == SkillType.Attacker).ToList(); //アタッカーのキャラクターを取得
+        party.ForEach(e => e.ResetPower());                                               //パワーをリセット
 
-        partyBuffer.ForEach(e => e.Buff(partyAttacker));
+        partyBuffer.ForEach(e => e.Buff(partyAttacker)); //バッファーのスキルを発動
 
         NowPower = partyAttacker.Sum(e => e.power);
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Florist", menuName = "Character/CSlimeFlorist")]
@@ -14,15 +15,22 @@ public class CSlimeFlorist : GameCharacter
 
     public override string Tip
     {
-        get => $"攻撃力：{power}";
+        get => $"スライム王国に" +
+               $"\n攻撃力X{power}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
+        var targetPartys = targetGameCharacters.Where(p => p.propertys.Contains(Property.SlimeCuntry));
+
+        foreach (var targetmenber in targetPartys)
+        {
+            targetmenber.power *= power;
+        }
     }
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 2;
+        return 1+ Getlevel() ;
     }
 }

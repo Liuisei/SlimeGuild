@@ -31,6 +31,8 @@ public class DataManager : Singleton<DataManager>
 
     [SerializeField]
     GameObject _detilSF;
+    [SerializeField]
+    GameObject _tipsSF;
 
     private float _cooltime = 1.0f;
 
@@ -229,6 +231,11 @@ public class DataManager : Singleton<DataManager>
     {
         GameObject newdetail = Instantiate(_detilSF, new Vector3(0, 0, 0), Quaternion.identity);
         newdetail.GetComponentInChildren<DetailsView>().ID = id;
+    }
+    public void TipSpawn(int id)
+    {
+        GameObject newtips = Instantiate(_tipsSF, new Vector3(0, 0, 0), Quaternion.identity);
+        newtips.GetComponentInChildren<TipView>().ID = id;
     }
 
     public void PartySetUp()

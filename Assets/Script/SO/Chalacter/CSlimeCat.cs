@@ -14,7 +14,8 @@ public class CSlimeCat : GameCharacter
 
     public override string Tip
     {
-        get => $"勇者パーティー,スライム王国に攻撃力+{PowerFunction()}";
+        get => $"勇者パーティー,スライム王国に" +
+               $"\n攻撃力+{PowerFunction()}";
     }
 
 

@@ -17,7 +17,7 @@ MonoBehaviour:
   rarity: 1
   propertys: 
   skillType: 0
-  textureSlime: {fileID: 2800000, guid: 47b45eca52f356749938504046a660ec, type: 3}
+  textureSlime: {fileID: 2800000, guid: 6d3518eb69860f247afb757089a7095d, type: 3}
   textureBack: {fileID: 0}
   textureClothes: {fileID: 2800000, guid: ba22a0fbbc585ab4e8424b29577dc7fe, type: 3}
   textureHat: {fileID: 2800000, guid: 6cee8d435c0baea4c91431c61e532889, type: 3}

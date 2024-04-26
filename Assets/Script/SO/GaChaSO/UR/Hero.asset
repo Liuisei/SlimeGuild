@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87fbb574ad847abab61b72a7c3f0395, type: 3}
   m_Name: Hero
   m_EditorClassIdentifier: 
-  characterId: 0
+  characterId: 20
   characterName: 20
   rarity: 5
   propertys: 

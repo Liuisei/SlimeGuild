@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterId: 5
   characterName: 0
-  rarity: 5
+  rarity: 0
   propertys: 
+  skillType: 0
   textureSlime: {fileID: 2800000, guid: cb14fb55e59691c4d8dbbeb79472c63d, type: 3}
   textureBack: {fileID: 0}
   textureClothes: {fileID: 2800000, guid: 303358090ce1af4419d4f9c179f2cb3a, type: 3}
   textureHat: {fileID: 2800000, guid: 21842c4110d802741a2a3c237fbc9142, type: 3}
   textureWeaponRight: {fileID: 2800000, guid: cddf3e83be2e8ab4c8625b0deeffd692, type: 3}
   textureWeaponLeft: {fileID: 2800000, guid: d675f8094e54d5e4ca6dfb3f11b29ebe, type: 3}
+  power: 0

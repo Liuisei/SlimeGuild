@@ -31,16 +31,17 @@ public class DataManager : Singleton<DataManager>
 
     [SerializeField]
     GameObject _detilSF;
+
     [SerializeField]
     GameObject _tipsSF;
 
     private float _cooltime = 1.0f;
 
 
-    public Action OnMoneyChanged;
-    public Action OnPlayerCharacterListChanged;
-    public Action OnNowPowerChanged;
-
+    public Action       OnMoneyChanged;
+    public Action       OnPlayerCharacterListChanged;
+    public Action       OnNowPowerChanged;
+    public Action       OnClicked;
     public event Action OnPartyChanged;
 
     public override void AwakeFunction()
@@ -56,6 +57,7 @@ public class DataManager : Singleton<DataManager>
 
             _playerCharactersSiriSF.Add(newCharacter);
         }
+
         AddCharacter(1);
     }
 
@@ -148,6 +150,7 @@ public class DataManager : Singleton<DataManager>
     {
         return _characterDatabaseSiriSF.characters.Find(e => e.characterId == id).Description;
     }
+
     public string GetCharacterTip(int id)
     {
         return _characterDatabaseSiriSF.characters.Find(e => e.characterId == id).Tip;
@@ -233,6 +236,7 @@ public class DataManager : Singleton<DataManager>
         GameObject newdetail = Instantiate(_detilSF, new Vector3(0, 0, 0), Quaternion.identity);
         newdetail.GetComponentInChildren<DetailsView>().ID = id;
     }
+
     public void TipSpawn(int id)
     {
         GameObject newtips = Instantiate(_tipsSF, new Vector3(0, 0, 0), Quaternion.identity);
@@ -251,6 +255,12 @@ public class DataManager : Singleton<DataManager>
         partyBuffer.ForEach(e => e.Buff(partyAttacker)); //バッファーのスキルを発動
 
         NowPower = partyAttacker.Sum(e => e.power);
+    }
+
+    public void ClickAddMoney()
+    {
+        Money += NowPower;
+        OnClicked?.Invoke();
     }
 }
 

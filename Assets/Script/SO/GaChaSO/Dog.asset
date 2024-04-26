@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterId: 1
   characterName: 5
-  rarity: 1
+  rarity: 0
   propertys: 00000000
   skillType: 0
   textureSlime: {fileID: 2800000, guid: a6f32cd5ff911e7428b5aafe36385a43, type: 3}
@@ -23,4 +23,4 @@ MonoBehaviour:
   textureHat: {fileID: 0}
   textureWeaponRight: {fileID: 0}
   textureWeaponLeft: {fileID: 0}
-  power: 202
+  power: 1102

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterId: 3
   characterName: 3
-  rarity: 3
+  rarity: 0
   propertys: 
   skillType: 1
   textureSlime: {fileID: 2800000, guid: 3096006063944e44892105c902aba78a, type: 3}

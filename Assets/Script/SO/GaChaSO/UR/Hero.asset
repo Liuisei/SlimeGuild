@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87fbb574ad847abab61b72a7c3f0395, type: 3}
+  m_Name: Hero
+  m_EditorClassIdentifier: 
+  characterId: 0
+  characterName: 20
+  rarity: 5
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: 1ea3ad25049ef6f4c9753883c502f655, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 0}
+  textureHat: {fileID: 0}
+  textureWeaponRight: {fileID: 2800000, guid: a3168004c63ac7f43b3c413942274c37, type: 3}
+  textureWeaponLeft: {fileID: 2800000, guid: 7a1161d024ddcd14f8d4e40ac841d898, type: 3}
+  power: 0

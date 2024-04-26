@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0ebde0cb26442dae0ab30b28c07303, type: 3}
+  m_Name: King
+  m_EditorClassIdentifier: 
+  characterId: 18
+  characterName: 18
+  rarity: 4
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: 45b91fe989fa74d46817be8e5073c433, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 2800000, guid: abb0db2f4a6960e478548bec5be085c6, type: 3}
+  textureHat: {fileID: 2800000, guid: 9083ec8d3a6915c41a3a10277f65e80c, type: 3}
+  textureWeaponRight: {fileID: 2800000, guid: 2a4d04ae50c10f0418434d0ba24a285c, type: 3}
+  textureWeaponLeft: {fileID: 0}
+  power: 0

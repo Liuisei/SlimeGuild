@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7600c2b9bf6c4fd091ca68ab32647fd8, type: 3}
+  m_Name: Host
+  m_EditorClassIdentifier: 
+  characterId: 8
+  characterName: 7
+  rarity: 1
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: 1eab43fb8ed2bd84fb7b1b36ceb0bbd1, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 2800000, guid: 972c75ce456107746b84dc2864f7debe, type: 3}
+  textureHat: {fileID: 2800000, guid: 7aff40f993d5d994dbb2569d0c72a197, type: 3}
+  textureWeaponRight: {fileID: 0}
+  textureWeaponLeft: {fileID: 0}
+  power: 0

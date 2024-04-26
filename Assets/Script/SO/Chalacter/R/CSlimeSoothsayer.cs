@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "diviner", menuName = "CharacterR/CSlimeDiviner")]
-public class CSlimeDiviner : GameCharacter
+[CreateAssetMenu(fileName = "Soothsayer", menuName = "CharacterR/CSlimeSoothsayer")]
+public class CSlimeSoothsayer : GameCharacter
 {
     public override string Description
     {

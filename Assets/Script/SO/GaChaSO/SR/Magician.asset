@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd006923f0d44bb5b10ab5092a52db4f, type: 3}
+  m_Name: Magician
+  m_EditorClassIdentifier: 
+  characterId: 15
+  characterName: 15
+  rarity: 3
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: c49b658c02593c24a9e70512562af380, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 2800000, guid: 31c68ec289ecfee4ba43855cb0b809bb, type: 3}
+  textureHat: {fileID: 0}
+  textureWeaponRight: {fileID: 2800000, guid: dee02c2100c787e47905efd4b0ff196f, type: 3}
+  textureWeaponLeft: {fileID: 0}
+  power: 0

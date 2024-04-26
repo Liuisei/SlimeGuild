@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51579c7629d8467c93554b9f4130d6ae, type: 3}
+  m_Name: Sister
+  m_EditorClassIdentifier: 
+  characterId: 9
+  characterName: 0
+  rarity: 1
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: 47b45eca52f356749938504046a660ec, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 2800000, guid: ba22a0fbbc585ab4e8424b29577dc7fe, type: 3}
+  textureHat: {fileID: 2800000, guid: 6cee8d435c0baea4c91431c61e532889, type: 3}
+  textureWeaponRight: {fileID: 0}
+  textureWeaponLeft: {fileID: 0}
+  power: 0

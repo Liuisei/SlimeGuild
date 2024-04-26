@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95671938fc714ba6bbb2bd1b32e81b15, type: 3}
+  m_Name: Cook
+  m_EditorClassIdentifier: 
+  characterId: 10
+  characterName: 13
+  rarity: 2
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: c5ce32a8775bb5743afc2e5fe2269ee1, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 2800000, guid: b6741f3866eacfb4c971689c30dbc3c6, type: 3}
+  textureHat: {fileID: 2800000, guid: a109b2c5b8f50f744b7ec9a03578f2ca, type: 3}
+  textureWeaponRight: {fileID: 2800000, guid: 0b0032fa7fc627544a96f8afa531ca58, type: 3}
+  textureWeaponLeft: {fileID: 2800000, guid: c3d53ce8bc2ee854fbcbb4f839314484, type: 3}
+  power: 0

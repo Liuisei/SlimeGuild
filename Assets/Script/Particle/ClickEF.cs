@@ -15,7 +15,15 @@ public class ClickEf : MonoBehaviour
     {
         DataManager.Instance.OnClicked += SpawnEffect;
     }
-    
+
+
+    void OnDisable()
+    {
+        DataManager.Instance.OnClicked -= SpawnEffect;
+
+    }
+
+
     void SpawnEffect()
     {
         // Get the position of the main camera

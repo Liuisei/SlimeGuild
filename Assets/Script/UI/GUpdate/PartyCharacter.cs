@@ -1,11 +1,12 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler,
+    IPointerExitHandler
 {
-    
     [SerializeField]
     private CharacterView characterViewPrefab;
 
@@ -18,7 +19,6 @@ public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHand
         {
             _viewId = value;
             UpdateGraphic();
-            
         }
     }
 
@@ -41,17 +41,36 @@ public class PartyCharacter : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (_viewId == -1)
-        {
-            Debug.Log("None Character Seted");
-            return;
-        }
-        Debug.Log("PartyCharacter OnPointerUp");
     }
 
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("PartyCharacter OnPointerDown");
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (_viewId == -1)
+        {
+            Debug.Log("None Character Seted");
+        }
+        else
+        {
+            Debug.Log("Character Seted");
+            StartCoroutine(LogAfterDelay());
+        }
+    }
+
+    private IEnumerator LogAfterDelay()
+    {
+        Debug.Log("Character Tip1");
+        yield return new WaitForSeconds(1);
+        Debug.Log("Character Tip");
+        DataManager.Instance.TipSpawn(_viewId);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        StopAllCoroutines();
     }
 }

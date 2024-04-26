@@ -6,18 +6,22 @@ public class CSlimePeasant : GameCharacter
 {
     public override string Description
     {
-        get => "農家は、農作物を育てることが得意なキャラクターです。";
+        get => $"スライム王国の平民。"            +
+               $"\n攻撃力：{PowerFunction()}" +
+               $"\n加護：スライム王国";
+    }
+
+    public override string Tip
+    {
+        get => $"攻撃力：{power}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        
     }
 
-    public override int PowerFunction(int level)
+    public override int PowerFunction()
     {
-        return 100 + level * 1 ;
+        return 100 + Getlevel() * 1;
     }
-
-
 }

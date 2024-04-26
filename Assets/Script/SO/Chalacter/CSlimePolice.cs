@@ -6,7 +6,14 @@ public class CSlimePolice : GameCharacter
 {
     public override string Description
     {
-        get => "警察は、治安を守ることが得意なキャラクターです";
+        get => $"スライム王国の警備隊。"           +
+               $"\n攻撃力：{PowerFunction()}" +
+               $"\n加護：スライム王国";
+    }
+
+    public override string Tip
+    {
+        get => $"攻撃力：{power}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
@@ -14,9 +21,9 @@ public class CSlimePolice : GameCharacter
         
     }
 
-    public override int PowerFunction(int level)
+    public override int PowerFunction()
     {
-        return 1000;
+        return 1000 + Getlevel();
     }
 }
 

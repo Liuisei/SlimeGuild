@@ -29,7 +29,7 @@ public class GachaManager : Singleton<GachaManager>
         // レアリティを決定
         Rarity drawnRarity = DetermineRarity();
         Debug.Log(drawnRarity);
-        
+
         List<GameCharacter> charactersOfDrawnRarity = gachaCharacters
             .Where(e => e.rarity == drawnRarity).ToList(); // 決定したレアリティのキャラクターのリストを取得
 
@@ -41,6 +41,7 @@ public class GachaManager : Singleton<GachaManager>
 
     private Rarity DetermineRarity()
     {
+        ;
         float randomValue = Random.Range(0.001f, 100.0f);
         Debug.Log(randomValue);
         if (randomValue <= rarityProbabilities[Rarity.UR]) return Rarity.UR;

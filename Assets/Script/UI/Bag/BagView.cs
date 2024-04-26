@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class BagView : MonoBehaviour
+public class BagView : MonoBehaviour , IPointerUpHandler , IPointerDownHandler
 {
     [SerializeField]
     private CharacterView characterViewPrefab;
@@ -36,5 +37,14 @@ public class BagView : MonoBehaviour
         textLevel.text = "Lv:"  + DataManager.Instance.GetCharacterLevel(id).ToString();
         textQuantity.text = "x" + DataManager.Instance.GetCharacterQuantity(id).ToString();
         characterViewPrefab.CharacterId = id;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        DataManager.Instance.DetialSPawn(characterViewPrefab.CharacterId);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
     }
 }

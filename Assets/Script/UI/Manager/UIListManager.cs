@@ -15,6 +15,7 @@ public abstract class UIListManager<T> : MonoBehaviour
     protected virtual void Start()
     {
         UpdateItems(GetOrderedIDList());
+        Debug.Log("UIListManager Start");
     }
 
     protected void UpdateItems(List<int> orderedIds)

@@ -56,6 +56,7 @@ public class DataManager : Singleton<DataManager>
 
             _playerCharactersSiriSF.Add(newCharacter);
         }
+        AddCharacter(1);
     }
 
     public bool IsPartyIndexMax()

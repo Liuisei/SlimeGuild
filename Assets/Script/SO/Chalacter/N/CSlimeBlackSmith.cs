@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Blacksmith", menuName = "CharacterN/CSlimeBlacksmith")]
@@ -19,7 +20,13 @@ public class CSlimBlacksmith : GameCharacter
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        
+        var targetParties = targetGameCharacters.Where(p =>
+            p.propertys.Contains(Property.BraveParty) || p.propertys.Contains(Property.SlimeCuntry));
+
+        foreach (var targetMember in targetParties)
+        {
+            targetMember.power += power;
+        }
     }
 
     public override int PowerFunction()

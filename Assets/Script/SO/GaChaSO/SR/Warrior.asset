@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cebee8b884db4a4790936d6640b7f404, type: 3}
+  m_Name: Warrior
+  m_EditorClassIdentifier: 
+  characterId: 17
+  characterName: 17
+  rarity: 3
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: dbf0d87e9e9f27443a2e11d0df733faa, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 0}
+  textureHat: {fileID: 0}
+  textureWeaponRight: {fileID: 2800000, guid: 3e4c96845cbdcb048b6ff60c61963d25, type: 3}
+  textureWeaponLeft: {fileID: 2800000, guid: 0eb0c20eeda73a3409a017fc9cb7cbe5, type: 3}
+  power: 0

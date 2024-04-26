@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd58ce7d7f6452c92bad52fbc2cae36, type: 3}
+  m_Name: Blacksmith
+  m_EditorClassIdentifier: 
+  characterId: 6
+  characterName: 8
+  rarity: 1
+  propertys: 
+  skillType: 0
+  textureSlime: {fileID: 2800000, guid: c140f13c1f5a12f47bcdd18123069fbb, type: 3}
+  textureBack: {fileID: 0}
+  textureClothes: {fileID: 2800000, guid: 972c75ce456107746b84dc2864f7debe, type: 3}
+  textureHat: {fileID: 2800000, guid: d2a3b8f48cd14e64a9d5b9ce0f78752a, type: 3}
+  textureWeaponRight: {fileID: 2800000, guid: ca9da1127078c8b46a38d486156640fc, type: 3}
+  textureWeaponLeft: {fileID: 2800000, guid: 33fff65bd0b4fda4180004367d63d60e, type: 3}
+  power: 0

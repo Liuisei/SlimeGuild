@@ -30,11 +30,13 @@ public class CharacterView : MonoBehaviour
 
     [SerializeField]
     private int _characterIdSF;
+    
+    [SerializeField]
+    private Texture No; // キャラクターのレベル
 
     private void Start()
     {
         RawImageUPdate();
-        
     }
 
     public int CharacterId
@@ -62,28 +64,31 @@ public class CharacterView : MonoBehaviour
     {
         if (_characterIdSF == -1)
         {
-            SetTextureAlpha(_textureRearitySF, DataManager.Instance.CharacterDatabase.rarityTextures[0]);
-            SetTextureAlpha(_textureBackSF, 0);
-            SetTextureAlpha(_textureSlimeSF, 0);
-            SetTextureAlpha(_textureClothesSF, 0);
-            SetTextureAlpha(_textureHatSF, 0);
+            SetTextureAlpha(_textureRearitySF,     DataManager.Instance.CharacterDatabase.rarityTextures[0]);
+            SetTextureAlpha(_textureBackSF,        0);
+            SetTextureAlpha(_textureSlimeSF,       0);
+            SetTextureAlpha(_textureClothesSF,     0);
+            SetTextureAlpha(_textureHatSF,         0);
             SetTextureAlpha(_textureWeaponRightSF, 0);
-            SetTextureAlpha(_textureWeaponLeftSF, 0);
+            SetTextureAlpha(_textureWeaponLeftSF,  0);
             return;
         }
+        
+        
 
-        var characterDatabaseCharacter =
-            DataManager.Instance.CharacterDatabase.characters.Find(character => character.characterId == _characterIdSF);
+        GameCharacter characterDatabaseCharacter =
+            DataManager.Instance.CharacterDatabase.characters.Find(character =>
+                character.characterId == _characterIdSF);
         if (characterDatabaseCharacter != null)
         {
             SetTextureAlpha(_textureRearitySF,
                 DataManager.Instance.CharacterDatabase.rarityTextures[(int)characterDatabaseCharacter.rarity]);
-            SetTextureAlpha(_textureBackSF, characterDatabaseCharacter.textureBack);
-            SetTextureAlpha(_textureSlimeSF, characterDatabaseCharacter.textureSlime);
-            SetTextureAlpha(_textureClothesSF, characterDatabaseCharacter.textureClothes);
-            SetTextureAlpha(_textureHatSF, characterDatabaseCharacter.textureHat);
+            SetTextureAlpha(_textureBackSF,        characterDatabaseCharacter.textureBack);
+            SetTextureAlpha(_textureSlimeSF,       characterDatabaseCharacter.textureSlime);
+            SetTextureAlpha(_textureClothesSF,     characterDatabaseCharacter.textureClothes);
+            SetTextureAlpha(_textureHatSF,         characterDatabaseCharacter.textureHat);
             SetTextureAlpha(_textureWeaponRightSF, characterDatabaseCharacter.textureWeaponRight);
-            SetTextureAlpha(_textureWeaponLeftSF, characterDatabaseCharacter.textureWeaponLeft);
+            SetTextureAlpha(_textureWeaponLeftSF,  characterDatabaseCharacter.textureWeaponLeft);
         }
         else
         {
@@ -93,9 +98,22 @@ public class CharacterView : MonoBehaviour
 
     void SetTextureAlpha(RawImage image, Texture texture)
     {
-        //NULL RETURN
-        image.texture = texture ?? image.texture;
-        image.color = new Color(image.color.r, image.color.g, image.color.b, texture ? 1 : 0);
+        if (image == null)
+        {
+            Debug.LogError("RawImage is null");
+            return;
+        }
+
+        if (texture == null)
+        {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+        }
+        else
+        {
+            image.texture = texture;
+            image.color   = new Color(image.color.r, image.color.g, image.color.b, 1);
+        }          
+        
     }
 
     void SetTextureAlpha(RawImage image, int alpha)

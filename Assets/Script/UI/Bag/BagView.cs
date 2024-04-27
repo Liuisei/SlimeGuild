@@ -21,7 +21,6 @@ public class BagView : MonoBehaviour , IPointerUpHandler , IPointerDownHandler ,
     /// <param name="id"></param>
     public void SetBagData(int id)
     {
-        characterViewPrefab.CharacterId = id;
         UpdateBugContent(id);
     }
 

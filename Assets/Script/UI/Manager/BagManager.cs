@@ -26,9 +26,8 @@ public class BagManager : UIListManager<BagView>
 
     protected override List<int> GetOrderedIDList()
     {
-        //DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId)ID順番にソート
-
-        return DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId).OrderBy(e => e).ToList();
+        return DataManager.Instance.CharacterDatabase.characters.Where(e => DataManager.Instance.HasCharacter(e.characterId)).
+            Select(x => x.characterId).OrderBy(e => e).ToList();
     }
 
     protected override List<int> GetOrderedIDByHaveCountList()

@@ -22,8 +22,6 @@ public abstract class UIListManager<T> : MonoBehaviour
     {
         for (int i = 0; i < orderedIds.Count; i++)
         {
-            if (HasItem(orderedIds[i]) == false) continue;
-
             if (i < ItemList.Count)
             {
                 UpdateItem(i, orderedIds[i]);

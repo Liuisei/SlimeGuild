@@ -11,7 +11,7 @@ public class PartySelectManager : UIListManager<PartySelectContent>
 
     protected override List<int> GetOrderedIDList()
     {
-        return DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId).ToList();
+        return DataManager.Instance.CharacterDatabase.characters.Select(x => x.characterId).OrderBy(e => e).ToList();
     }
 
     protected override List<int> GetOrderedIDByHaveCountList()

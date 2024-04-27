@@ -93,6 +93,7 @@ public class CharacterView : MonoBehaviour
 
     void SetTextureAlpha(RawImage image, Texture texture)
     {
+        //NULL RETURN
         image.texture = texture ?? image.texture;
         image.color = new Color(image.color.r, image.color.g, image.color.b, texture ? 1 : 0);
     }

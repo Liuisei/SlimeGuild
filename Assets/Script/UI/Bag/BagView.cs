@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BagView : MonoBehaviour , IPointerUpHandler , IPointerDownHandler
+public class BagView : MonoBehaviour , IPointerUpHandler , IPointerDownHandler ,IPointerClickHandler
 {
     [SerializeField]
     private CharacterView characterViewPrefab;
@@ -41,10 +41,15 @@ public class BagView : MonoBehaviour , IPointerUpHandler , IPointerDownHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        DataManager.Instance.DetialSPawn(characterViewPrefab.CharacterId);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        DataManager.Instance.DetialSPawn(characterViewPrefab.CharacterId);
+
     }
 }

@@ -7,7 +7,6 @@ public class Life : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke( nameof(Destroy), 2.0f);
         
     }
 

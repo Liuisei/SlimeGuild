@@ -261,6 +261,7 @@ public class DataManager : Singleton<DataManager>
     {
         Money += NowPower;
         OnClicked?.Invoke();
+        SoundManager.Instance.PlaySE(SeSoundData.Se.Clicker);
     }
 }
 

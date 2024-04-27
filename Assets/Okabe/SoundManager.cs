@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
     [SerializeField] private AudioSource _bgmAudioSource;
     [SerializeField] private AudioSource _seAudioSource;
@@ -14,7 +14,11 @@ public class SoundManager : MonoBehaviour
     public float _bgmMasterVolume = 1;
     public float _seMasterVolume = 1;
 
-    private static SoundManager Instance { get; set; }
+
+    public override void AwakeFunction()
+    {
+        throw new NotImplementedException();
+    }
 
     private void Awake()
     {

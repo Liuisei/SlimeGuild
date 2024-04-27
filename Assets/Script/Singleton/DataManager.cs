@@ -50,9 +50,9 @@ public class DataManager : Singleton<DataManager>
         {
             var newCharacter = new PlayerCharacterData
             {
-                _characterIdSiriSF = i, // 新しいキャラクターのIDをリストの現在の長さに設定
-                _quantitySiriSF    = 0,
-                _levelSiriSF       = 1 // レベルは初期値として1を設定
+                _characterId = i, // 新しいキャラクターのIDをリストの現在の長さに設定
+                _quantity    = 0,
+                _level       = 1 // レベルは初期値として1を設定
             };
 
             _playerCharactersSiriSF.Add(newCharacter);
@@ -127,7 +127,11 @@ public class DataManager : Singleton<DataManager>
     /// <returns></returns>
     public bool HasCharacter(int id)
     {
-        return _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == id)._quantitySiriSF > 0;
+        if (_playerCharactersSiriSF.Find(e => e._characterId == id)._quantity > 0 &&
+            _playerCharactersSiriSF.Find(e => e._characterId == id)._level    > 0) return true;
+
+
+        return false;
     }
 
 
@@ -138,12 +142,12 @@ public class DataManager : Singleton<DataManager>
 
     public int GetCharacterQuantity(int id)
     {
-        return _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == id)._quantitySiriSF;
+        return _playerCharactersSiriSF.Find(e => e._characterId == id)._quantity;
     }
 
     public int GetCharacterLevel(int id)
     {
-        return _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == id)._levelSiriSF;
+        return _playerCharactersSiriSF.Find(e => e._characterId == id)._level;
     }
 
     public string GetCharacterDetails(int id)
@@ -160,9 +164,9 @@ public class DataManager : Singleton<DataManager>
     {
         var newCharacter = new PlayerCharacterData
         {
-            _characterIdSiriSF = _playerCharactersSiriSF.Count, // 新しいキャラクターのIDをリストの現在の長さに設定
-            _quantitySiriSF    = quantity,
-            _levelSiriSF       = level
+            _characterId = _playerCharactersSiriSF.Count, // 新しいキャラクターのIDをリストの現在の長さに設定
+            _quantity    = quantity,
+            _level       = level
         };
 
         _playerCharactersSiriSF.Add(newCharacter);
@@ -207,8 +211,8 @@ public class DataManager : Singleton<DataManager>
     {
         Debug.Log("characterId: " + characterId);
         // playerCharacters でIDが一致するキャラクターを取得
-        var character = _playerCharactersSiriSF.Find(e => e._characterIdSiriSF == characterId);
-        character._quantitySiriSF++;
+        var character = _playerCharactersSiriSF.Find(e => e._characterId == characterId);
+        character._quantity++;
         DrawCharacterResultList.Add(characterId);
     }
 
@@ -225,9 +229,9 @@ public class DataManager : Singleton<DataManager>
 
     public void LevelUp(int id)
     {
-        var character = PlayerCharacterDaraList.Find(e => e._characterIdSiriSF == id);
-        character._quantitySiriSF -= character._levelSiriSF * 100;
-        character._levelSiriSF++;
+        var character = PlayerCharacterDaraList.Find(e => e._characterId == id);
+        character._quantity -= character._level * 100;
+        character._level++;
         OnPlayerCharacterListChanged?.Invoke();
     }
 
@@ -268,7 +272,7 @@ public class DataManager : Singleton<DataManager>
 [Serializable]
 public class PlayerCharacterData
 {
-    public int _characterIdSiriSF; //キャラクターID
-    public int _quantitySiriSF;    //所持数
-    public int _levelSiriSF;       //レベル
+    public int _characterId; //キャラクターID
+    public int _quantity;    //所持数
+    public int _level;       //レベル
 }

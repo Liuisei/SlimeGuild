@@ -1,37 +1,96 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public abstract class MyButton : MonoBehaviour,
     IPointerDownHandler,
     IPointerUpHandler,
     IPointerEnterHandler,
-    IPointerExitHandler
+    IPointerExitHandler,
+    IPointerClickHandler
 {
-    public UnityEvent onButtonDown;
-    public UnityEvent onButtonUp;
-    public UnityEvent onButtonEnter;
-    public UnityEvent onButtonExit;
+    [SerializeField]
+    Texture _normalTexture;
+
+    [SerializeField]
+    Texture _dawnTexture;
+
+    [FormerlySerializedAs("onButtonDown")]
+    public UnityEvent _onButtonDown;
+
+    [FormerlySerializedAs("onButtonUp")]
+    public UnityEvent _onButtonUp;
+
+    [FormerlySerializedAs("onButtonEnter")]
+    public UnityEvent _onButtonEnter;
+
+    [FormerlySerializedAs("onButtonExit")]
+    public UnityEvent _onButtonExit;
+
+    [FormerlySerializedAs("onButtonClick")]
+    public UnityEvent _onButtonClick;
+
+    RawImage _rawImage;
+
+    void Start()
+    { 
+        _rawImage = GetComponent<RawImage>();
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        onButtonDown?.Invoke();
+        _onButtonDown?.Invoke();
+
+        MouseDownChangeTexture();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        onButtonUp?.Invoke();
+        _onButtonUp?.Invoke();
         OnButtonUp();
+        TextureReset();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        onButtonEnter?.Invoke();
+        _onButtonEnter?.Invoke();
+        SoundManager.Instance.PlaySE(SeSoundData.Se.Onmouse);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        onButtonExit?.Invoke();
+        _onButtonExit?.Invoke();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _onButtonClick?.Invoke();
+    }
+
+    public void MouseDownChangeTexture()
+    {
+        if (_rawImage == null)
+        {
+            Debug.Log(  "RawImageをアタッチしてください。");
+            return;
+        }
+
+        if (_dawnTexture != null) _rawImage.texture  = _dawnTexture;
+        else Debug.Log("DawnTextureをアタッチしてください。");
+    }
+
+    public void TextureReset()
+    {
+        if (_rawImage == null)
+        {
+            Debug.Log(  "RawImageをアタッチしてください。");
+            return;
+        }
+        if (_dawnTexture != null) _rawImage.texture = _normalTexture;
+        else Debug.Log("NormalTextureをアタッチしてください。");
     }
 
     protected abstract void OnButtonUp();

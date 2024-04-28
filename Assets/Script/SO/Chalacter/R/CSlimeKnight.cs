@@ -7,26 +7,20 @@ public class CSlimeKnight : GameCharacter
 {
     public override string Description
     {
-        get => $"スライム王国の衛兵。"           +
+        get => $"スライム王国の騎士。"              +
                $"\n攻撃力：{PowerFunction()}" +
-               $"\n加護：スライム王国";
-       
+               $"\n\n加護：スライム王国";
     }
 
     public override string Tip
     {
-        get => $"攻撃力：{power}";
+        get => $"アタッカー" +
+               $"\n攻撃力：{power}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        var targetPartys = targetGameCharacters.Where(p =>
-            p._characterTypes.Contains(CharacterType.King) || p._characterTypes.Contains(CharacterType.Queen));
 
-        foreach (var targetmenber in targetPartys)
-        {
-            targetmenber.power += power;
-        }
     }
 
     public override int PowerFunction()
@@ -34,4 +28,3 @@ public class CSlimeKnight : GameCharacter
         return 1000 + Getlevel();
     }
 }
-

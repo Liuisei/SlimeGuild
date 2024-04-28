@@ -43,7 +43,7 @@ public class DetailsView : MonoBehaviour
         _countTextSF.text            = "X"   + DataManager.Instance.GetCharacterQuantity(id);
         _detailsTextSF.text          = DataManager.Instance.GetCharacterDetails(id);
         _updateTextSF.text = $"{DataManager.Instance.GetCharacterQuantity(id)}/"    +
-                             $"{DataManager.Instance.GetCharacterLevel(id) * 100 }\n" +
+                             $"{DataManager.Instance.GetCharacterLevel(id) * 10 }\n" +
                              $"LvUp";
     }
 }

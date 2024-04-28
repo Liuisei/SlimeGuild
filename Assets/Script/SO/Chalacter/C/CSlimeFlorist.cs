@@ -8,15 +8,17 @@ public class CSlimeFlorist : GameCharacter
     public override string Description
     {
         get =>
-            $"皆が大好きな花屋さん、スライム王国のアイドルだ。"                     +
-            $"\n{Property.SlimeCuntry}に攻撃力+{PowerFunction()}" +
-            $"\n加護：スライム王国";
+            $"皆が大好きな花屋さん"                     +
+            $"\nスライム王国のアイドルだ。"                  +
+            $"\nスライム王国に攻撃力*{PowerFunction()/10f}" +
+            $"\n\n加護：スライム王国";
     }
 
     public override string Tip
     {
-        get => $"スライム王国に" +
-               $"\n攻撃力X{power}";
+        get => $"バッファー"      +
+               $"\nスライム王国に" +
+               $"\n攻撃力X{power/10f}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
@@ -25,12 +27,12 @@ public class CSlimeFlorist : GameCharacter
 
         foreach (var targetmenber in targetPartys)
         {
-            targetmenber.power *= power;
+            targetmenber.power = (int)(targetmenber.power*power/10f);
         }
     }
 
     public override int PowerFunction()
     {
-        return 1+ Getlevel() ;
+        return 10+ Getlevel() ;
     }
 }

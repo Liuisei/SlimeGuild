@@ -12,7 +12,7 @@ public class BtnLvUp : MyButton
      
     protected override void OnButtonUp()
     {
-        if (DataManager.Instance.GetCharacterQuantity(_targetSF.ID) >= DataManager.Instance.GetCharacterLevel(_targetSF.ID)*100)
+        if (DataManager.Instance.GetCharacterQuantity(_targetSF.ID) >= DataManager.Instance.GetCharacterLevel(_targetSF.ID)*10)
         {
             DataManager.Instance.LevelUp(_targetSF.ID);
             _targetSF.OpenDetails();

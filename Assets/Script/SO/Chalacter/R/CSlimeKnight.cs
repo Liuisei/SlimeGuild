@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Knight", menuName = "CharacterR/CSlimeKnight")]
@@ -19,7 +20,13 @@ public class CSlimeKnight : GameCharacter
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        
+        var targetPartys = targetGameCharacters.Where(p =>
+            p._characterTypes.Contains(CharacterType.King) || p._characterTypes.Contains(CharacterType.Queen));
+
+        foreach (var targetmenber in targetPartys)
+        {
+            targetmenber.power += power;
+        }
     }
 
     public override int PowerFunction()

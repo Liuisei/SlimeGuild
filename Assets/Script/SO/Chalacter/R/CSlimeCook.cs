@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Cook", menuName = "CharacterR/CSlimeCook")]
@@ -19,12 +20,18 @@ public class CSlimeCook : GameCharacter
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        
+        var targetPartys = targetGameCharacters.Where(p =>
+            p.propertys.Contains(Property.BraveParty));
+
+        foreach (var targetmenber in targetPartys)
+        {
+            targetmenber.power += power;
+        }
     }
 
     public override int PowerFunction()
     {
-        return 1000 + Getlevel();
+        return 200 + Getlevel() * 2;
     }
 }
 

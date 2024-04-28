@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Hero", menuName = "CharacterUR/CSlimeHero")]
@@ -18,7 +19,13 @@ public class CSlimeHero : GameCharacter
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        
+        var targetPartys = targetGameCharacters.Where(p =>
+            p.propertys.Contains(Property.BraveParty));
+
+        foreach (var targetmenber in targetPartys)
+        {
+            targetmenber.power += power;
+        }
     }
 
     public override int PowerFunction()

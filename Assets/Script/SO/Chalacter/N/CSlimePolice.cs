@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Guard", menuName = "CharacterN/CSlimeGuard")]
@@ -19,12 +20,18 @@ public class CSlimeGuard : GameCharacter
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        
+        var targetPartys = targetGameCharacters.Where(p =>
+            p.propertys.Contains(Property.BraveParty) || p.propertys.Contains(Property.SlimeCuntry));
+
+        foreach (var targetmenber in targetPartys)
+        {
+            targetmenber.power += power;
+        }
     }
 
     public override int PowerFunction()
     {
-        return 1000 + Getlevel();
+        return 100 + Getlevel() * 2;
     }
 }
 

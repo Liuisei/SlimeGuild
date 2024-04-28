@@ -1,9 +1,6 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class PartySelectContent : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {

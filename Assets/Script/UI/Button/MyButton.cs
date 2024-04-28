@@ -72,7 +72,11 @@ public abstract class MyButton : MonoBehaviour,
 
     public void MouseDownChangeTexture()
     {
-        if (_rawImage == null)Debug.Log(  "RawImageをアタッチしてください。");
+        if (_rawImage == null)
+        {
+            Debug.Log(  "RawImageをアタッチしてください。");
+            return;
+        }
 
         if (_dawnTexture != null) _rawImage.texture  = _dawnTexture;
         else Debug.Log("DawnTextureをアタッチしてください。");
@@ -80,8 +84,11 @@ public abstract class MyButton : MonoBehaviour,
 
     public void TextureReset()
     {
-        if (_rawImage == null)Debug.LogError(  "RawImageをアタッチしてください。");
-
+        if (_rawImage == null)
+        {
+            Debug.Log(  "RawImageをアタッチしてください。");
+            return;
+        }
         if (_dawnTexture != null) _rawImage.texture = _normalTexture;
         else Debug.Log("NormalTextureをアタッチしてください。");
     }

@@ -18,7 +18,7 @@ public class CSlimeFlorist : GameCharacter
     {
         get => $"バッファー"      +
                $"\nスライム王国に" +
-               $"\n攻撃力X{power}";
+               $"\n攻撃力X{power/10f}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)

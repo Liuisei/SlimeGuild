@@ -230,7 +230,7 @@ public class DataManager : Singleton<DataManager>
     public void LevelUp(int id)
     {
         var character = PlayerCharacterDaraList.Find(e => e._characterId == id);
-        character._quantity -= character._level * 100;
+        character._quantity -= character._level * 10;
         character._level++;
         OnPlayerCharacterListChanged?.Invoke();
     }

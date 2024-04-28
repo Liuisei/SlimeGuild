@@ -188,11 +188,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_text
-      value: X10
+      value: 'X10
+
+        10000
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_fontSize
-      value: 34.4
+      value: 22.05
       objectReference: {fileID: 0}
     - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_fontColor.b
@@ -982,6 +986,18 @@ PrefabInstance:
     - target: {fileID: 4317677962357466049, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
       propertyPath: m_Name
       value: GachaScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988521835969919131, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
+      propertyPath: m_text
+      value: 'X1
+
+        1000
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988521835969919131, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
+      propertyPath: m_fontSize
+      value: 26.55
       objectReference: {fileID: 0}
     - target: {fileID: 6476882888361393611, guid: f1fe311b9d9232b46a33a7c7e60ea8bc, type: 3}
       propertyPath: m_AnchorMax.y

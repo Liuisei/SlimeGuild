@@ -157,11 +157,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_text
-      value: X10
+      value: 'X10
+
+        10000
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_fontSize
-      value: 25.45
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_fontColor.b
@@ -697,6 +701,18 @@ PrefabInstance:
     - target: {fileID: 920707728631074215, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
+      propertyPath: m_text
+      value: 'X1
+
+        1000
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161728915485559031, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
+      propertyPath: m_fontSize
+      value: 25.85
       objectReference: {fileID: 0}
     - target: {fileID: 4258424806193692182, guid: c1316fcfb1c63a6429c9edcec2c12cfa, type: 3}
       propertyPath: m_Name

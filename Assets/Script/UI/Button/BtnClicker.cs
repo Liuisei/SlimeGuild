@@ -7,5 +7,6 @@ public class BtnClicker : MyButton
     protected override void OnButtonUp()
     {
         DataManager.Instance.ClickAddMoney();
+        SoundManager.Instance.PlaySE(SeSoundData.Se.Clicker);
     }
 }

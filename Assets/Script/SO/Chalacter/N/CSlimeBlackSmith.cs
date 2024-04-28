@@ -31,7 +31,7 @@ public class CSlimBlacksmith : GameCharacter
 
     public override int PowerFunction()
     {
-        return 1000 + Getlevel();
+        return 1000 + Getlevel() * 1;
     }
 }
 

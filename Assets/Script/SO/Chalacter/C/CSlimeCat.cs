@@ -7,14 +7,16 @@ public class CSlimeCat : GameCharacter
 {
     public override string Description
     {
-        get => $"勇者パーティーと行動したスライム王国の伝説の猫。"               +
-               $"\n勇者パーティーとスライム王国に攻撃力+{PowerFunction()}" +
-               $"\n加護：勇者パーティー、スライム王国";
+        get => $"勇者パーティーと行動したスライム王国の伝説の猫。" +
+               $"\n勇者パーティーとスライム王国に"        +
+               $"\n攻撃力+{PowerFunction()}"  +
+               $"\n\n加護：勇者パーティー、スライム王国";
     }
 
     public override string Tip
     {
-        get => $"勇者パーティー,スライム王国に" +
+        get => $"バッファー"                +
+               $"\n勇者パーティー,スライム王国に" +
                $"\n攻撃力+{PowerFunction()}";
     }
 
@@ -32,6 +34,6 @@ public class CSlimeCat : GameCharacter
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 1;
+        return 20 + Getlevel() * 2;
     }
 }

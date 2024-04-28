@@ -9,7 +9,6 @@ public abstract class GameCharacter : ScriptableObject
     public CharacterType  characterName; // キャラクターの名前
     public Rarity         rarity;        //レア度
     public List<Property> propertys;     //属性
-    public List<CharacterType> _characterTypes;
     public SkillType      skillType;     //スキルの種類
     public Texture textureSlime;       // キャラクターのアイコン
     public Texture textureBack;        // キャラクターの背景

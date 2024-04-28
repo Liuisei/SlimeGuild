@@ -8,12 +8,13 @@ public class CSlimePeasant : GameCharacter
     {
         get => $"スライム王国の平民。"            +
                $"\n攻撃力：{PowerFunction()}" +
-               $"\n加護：スライム王国";
+               $"\n\n加護：スライム王国";
     }
 
     public override string Tip
     {
-        get => $"攻撃力：{power}";
+        get => $"アタッカー" +
+               $"\n攻撃力：{power}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)

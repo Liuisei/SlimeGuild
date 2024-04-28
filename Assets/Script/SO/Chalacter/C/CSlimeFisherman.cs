@@ -8,12 +8,13 @@ public class CSlimeFisherman : GameCharacter
     {
         get => $"毎日一杯釣れる。"              +
                $"\n攻撃力：{PowerFunction()}" +
-               $"\n 加護：スライム王国";
+               $"\n\n 加護：スライム王国";
     }
 
     public override string Tip
     {
-        get => $"攻撃力：{power}";
+        get => $"アタッカー" +
+               $"\n攻撃力：{power}";
     }
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
@@ -22,6 +23,6 @@ public class CSlimeFisherman : GameCharacter
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 10;
+        return 10 + Getlevel() * 10;
     }
 }

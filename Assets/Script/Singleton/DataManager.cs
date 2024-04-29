@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[DefaultExecutionOrder(-1)]
+[DefaultExecutionOrder(-100)]
 public class DataManager : Singleton<DataManager>
 {
     [SerializeField]
@@ -15,7 +16,7 @@ public class DataManager : Singleton<DataManager>
     private int _moneySiriSF;
 
     [SerializeField]
-    public List<PlayerCharacterData> _playerCharactersSiriSF = new List<PlayerCharacterData>();
+    private List<PlayerCharacterData> _playerCharactersSiriSF = new List<PlayerCharacterData>();
 
     [SerializeField]
     private List<int> _drawCharacterResultResultListSiriSF = new List<int>();
@@ -46,19 +47,7 @@ public class DataManager : Singleton<DataManager>
 
     public override void AwakeFunction()
     {
-        for (var i = 0; i < _characterDatabaseSiriSF.characters.Count; i++)
-        {
-            var newCharacter = new PlayerCharacterData
-            {
-                _characterId = i, // 新しいキャラクターのIDをリストの現在の長さに設定
-                _quantity    = 0,
-                _level       = 1 // レベルは初期値として1を設定
-            };
-
-            _playerCharactersSiriSF.Add(newCharacter);
-        }
-
-        AddCharacter(1);
+        LoadPlayerData();
     }
 
     public bool IsPartyIndexMax()
@@ -97,6 +86,7 @@ public class DataManager : Singleton<DataManager>
         {
             _moneySiriSF = value;
             OnMoneyChanged?.Invoke();
+            SavePlayerData();
         }
     }
 
@@ -267,6 +257,65 @@ public class DataManager : Singleton<DataManager>
         OnClicked?.Invoke();
         SoundManager.Instance.PlaySE(SeSoundData.Se.Clicker);
     }
+    PlayerSaveData saveData = new PlayerSaveData(); 
+
+    public void SavePlayerData()
+    {
+         saveData = new PlayerSaveData 
+        {
+            _monet                = _moneySiriSF,
+            _playerCharacterDatas = _playerCharactersSiriSF,
+            _party                = _partyListSiriSF
+        };
+
+        string jsonSaveData = JsonUtility.ToJson(saveData);
+        PlayerPrefs.SetString("SaveData", jsonSaveData);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadPlayerData()
+    {
+        string jsonSaveData = PlayerPrefs.GetString("SaveData", "");
+        if (!string.IsNullOrEmpty(jsonSaveData))
+        {
+            PlayerSaveData loadedData = JsonUtility.FromJson<PlayerSaveData>(jsonSaveData);
+            _moneySiriSF            = loadedData._monet;
+            _playerCharactersSiriSF = loadedData._playerCharacterDatas;
+            _partyListSiriSF        = loadedData._party;
+        }
+        else
+        {
+            PlayerCharacterDataSet();
+            _moneySiriSF     = 50000;
+            _partyListSiriSF = new List<int> { -1, -1, -1, -1, -1 };
+        }
+        PartySetUp();
+    }
+
+    public void ResetPlayerCharacterData()
+    {
+        PlayerPrefs.DeleteKey("_playerCharactersSiriSF");
+        PlayerPrefs.DeleteKey("_moneySiriSF");
+        PlayerPrefs.DeleteKey("_partyListSiriSF");
+        _playerCharactersSiriSF = new List<PlayerCharacterData>();
+        _moneySiriSF            = 0;
+        _partyListSiriSF        = new List<int>();
+    }
+
+    public void PlayerCharacterDataSet()
+    {
+        for (var i = 0; i < _characterDatabaseSiriSF.characters.Count; i++)
+        {
+            var newCharacter = new PlayerCharacterData
+            {
+                _characterId = i, // 新しいキャラクターのIDをリストの現在の長さに設定
+                _quantity    = 0,
+                _level       = 1 // レベルは初期値として1を設定
+            };
+
+            _playerCharactersSiriSF.Add(newCharacter);
+        }
+    }
 }
 
 [Serializable]
@@ -275,4 +324,11 @@ public class PlayerCharacterData
     public int _characterId; //キャラクターID
     public int _quantity;    //所持数
     public int _level;       //レベル
+}
+[Serializable]
+public class PlayerSaveData
+{
+    public int                       _monet;               
+    public List<PlayerCharacterData> _playerCharacterDatas; 
+    public List<int>                    _party ;      
 }

@@ -13,7 +13,7 @@ public class CSlimeCook : GameCharacter
         $"\nバッファー";
 
     public override string Tip =>
-        $"バッファー" +
+        $"バッファー"             +
         $"\n勇者パーティー,スライム王国に" +
         $"\n攻撃力+{power}";
 

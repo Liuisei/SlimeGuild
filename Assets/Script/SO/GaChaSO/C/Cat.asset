@@ -15,7 +15,7 @@ MonoBehaviour:
   characterId: 0
   characterName: 4
   rarity: 0
-  propertys: 00000000
+  propertys: 0000000001000000
   skillType: 1
   textureSlime: {fileID: 2800000, guid: be19b5808badbbe42b6792f11f639f09, type: 3}
   textureBack: {fileID: 2800000, guid: baf4efaefd9ee284dbf8e223c5dbf3e9, type: 3}
@@ -23,4 +23,4 @@ MonoBehaviour:
   textureHat: {fileID: 0}
   textureWeaponRight: {fileID: 0}
   textureWeaponLeft: {fileID: 0}
-  power: 102
+  power: 22

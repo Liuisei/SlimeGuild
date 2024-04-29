@@ -10,12 +10,13 @@ public class CSlimePastor : GameCharacter
         $"勇者パーティーの優しい牧師。"                    +
         $"\n勇者パーティーに攻撃力*{PowerFunction()*2}" +
         $"\nスライム王国に攻撃力*{PowerFunction()}"    +
-        $"\n\n加護：勇者パーティー";
+        $"\n\n加護：勇者パーティー"                    +
+        $"\nバッファー";
 
     public override string Tip =>
-        $"バッファー" +
-        $"\nスライム王国に" +
-        $"\n攻撃力+{power}";
+        $"バッファー"                          +
+        $"\nスライム王国に攻撃力*{PowerFunction()}" +
+        $"\n勇者パーティーに攻撃力*{PowerFunction()*2}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {

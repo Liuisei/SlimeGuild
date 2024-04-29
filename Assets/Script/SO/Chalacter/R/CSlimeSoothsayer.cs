@@ -2,36 +2,33 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>Buffer 占い師</summary>
 [CreateAssetMenu(fileName = "Soothsayer", menuName = "CharacterR/CSlimeSoothsayer")]
 public class CSlimeSoothsayer : GameCharacter
 {
-    public override string Description
-    {
-        get => $"スライム王国の衛兵。"           +
-               $"\n攻撃力：{PowerFunction()}" +
-               $"\n加護：スライム王国";
-        
-    }
+    public override string Description =>
+        $"ちょっぴり怪しい占い師。" +
+        $"\n勇者パーティーに" +
+        $"\n攻撃力+{PowerFunction()}" +
+        $"\n\n加護：勇者パーティー";
 
-    public override string Tip
-    {
-        get => $"攻撃力：{power}";
-    }
+    public override string Tip =>
+        $"バッファー" +
+        $"\nスライム王国に" +
+        $"\n攻撃力+{power * 2}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        var targetPartys = targetGameCharacters.Where(p =>
-            p.propertys.Contains(Property.BraveParty));
+        var targetParties = targetGameCharacters.Where(p => p.propertys.Contains(Property.BraveParty));
 
-        foreach (var targetmenber in targetPartys)
+        foreach (var targetMember in targetParties)
         {
-            targetmenber.power += power;
+            targetMember.power += power * 2;
         }
     }
 
     public override int PowerFunction()
     {
-        return 1000 + Getlevel();
+        return 50 + Getlevel() * 2;
     }
 }
-

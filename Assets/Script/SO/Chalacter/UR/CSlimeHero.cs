@@ -1,36 +1,25 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
+/// <summary>Attacker 勇者 </summary>
 [CreateAssetMenu(fileName = "Hero", menuName = "CharacterUR/CSlimeHero")]
 public class CSlimeHero : GameCharacter
 {
-    public override string Description
-    {
-        get => $"スライム王国の衛兵。"           +
-               $"\n攻撃力：{PowerFunction()}" +
-               $"\n加護：スライム王国";
-    }
+    public override string Description =>
+        $"伝説の勇者。" +
+        $"\n攻撃力：{PowerFunction()}" +
+        $"\n加護：勇者パーティー";
 
-    public override string Tip
-    {
-        get => $"攻撃力：{power}";
-    }
+    public override string Tip =>
+        $"アタッカー" +
+        $"\n攻撃力：{power}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        var targetPartys = targetGameCharacters.Where(p =>
-            p.propertys.Contains(Property.BraveParty));
-
-        foreach (var targetmenber in targetPartys)
-        {
-            targetmenber.power += power;
-        }
     }
 
     public override int PowerFunction()
     {
-        return 1000 + Getlevel();
+        return 10000 + Getlevel() * 1;
     }
 }
-

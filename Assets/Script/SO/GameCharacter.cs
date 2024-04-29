@@ -46,7 +46,7 @@ public enum CharacterType //キャラクターの名前
     Florist,     //花屋
     Cat,         //猫
     Dog,         //犬
-    Soldier,     //兵士
+    Guard,     //兵士
     Innkeeper,   //宿主
     Blacksmith,  //鍛冶屋
     CatholicNun, //カトリック修道女

@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Attacker 騎士</summary>
-[CreateAssetMenu(fileName = "Knight", menuName = "CharacterR/CSlimeKnight")]
-public class CSlimeKnight : GameCharacter
+/// <summary>Attacker 衛兵</summary>
+[CreateAssetMenu(fileName = "Guard", menuName = "CharacterN/CSlimeGuard")]
+public class CSlimeGuard : GameCharacter
 {
     public override string Description =>
-        $"国を守る王様直属の騎士。" +
+        $"国の見回りを任されている。" +
         $"\n攻撃力：{PowerFunction()}" +
         $"\n\n 加護：スライム王国";
 
@@ -20,6 +20,6 @@ public class CSlimeKnight : GameCharacter
 
     public override int PowerFunction()
     {
-        return 50 + Getlevel() * 2;
+        return 40 + Getlevel() * 2;
     }
 }

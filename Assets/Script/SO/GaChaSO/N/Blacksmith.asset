@@ -15,8 +15,8 @@ MonoBehaviour:
   characterId: 6
   characterName: 8
   rarity: 1
-  propertys: 
-  skillType: 0
+  propertys: 00000000
+  skillType: 1
   textureSlime: {fileID: 2800000, guid: c140f13c1f5a12f47bcdd18123069fbb, type: 3}
   textureBack: {fileID: 0}
   textureClothes: {fileID: 2800000, guid: 972c75ce456107746b84dc2864f7debe, type: 3}

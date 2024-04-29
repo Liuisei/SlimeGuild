@@ -8,7 +8,7 @@ public class CSlimeKing : GameCharacter
     public override string Description =>
         $"スライム王国の国王。"              +
         $"\n攻撃力：{PowerFunction()}" +
-        $"\n加護：スライム王国"             +
+        $"\n\n加護：スライム王国"             +
         $"\nアタッカー";
 
     public override string Tip =>

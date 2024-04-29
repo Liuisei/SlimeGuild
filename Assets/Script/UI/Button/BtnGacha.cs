@@ -25,6 +25,7 @@ public class BtnGacha : MyButton
         {
             DataManager.Instance.Money -= price;
             GachaManager.Instance.DrawGacha();
+            SoundManager.Instance.PlaySE(SeSoundData.Se.Gacha);
             SceneManager.LoadScene(2);
         }
     }
@@ -41,6 +42,8 @@ public class BtnGacha : MyButton
             {
                 GachaManager.Instance.DrawGacha();
             }
+            SoundManager.Instance.PlaySE(SeSoundData.Se.Gacha);
+
             SceneManager.LoadScene(3);
         }
     }

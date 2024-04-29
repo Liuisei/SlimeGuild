@@ -6,7 +6,7 @@ using UnityEngine;
 public class CSlimeKnight : GameCharacter
 {
     public override string Description =>
-        $"国を守る王様直属の騎士。"            +
+        $"国を守る王国の騎士。"            +
         $"\n攻撃力：{PowerFunction()}" +
         $"\n\n 加護：スライム王国"          +
         $"\nアタッカー";

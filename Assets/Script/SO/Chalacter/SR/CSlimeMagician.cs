@@ -7,10 +7,11 @@ using UnityEngine;
 public class CSlimeMagician : GameCharacter
 {
     public override string Description =>
-        $"勇者をサポートする魔法使い。" +
-        $"\n勇者パーティーに"        +
-        $"\n攻撃力+{PowerFunction()}"  +
-        $"\n\n加護：勇者パーティー";
+        $"勇者をサポートする魔法使い。"          +
+        $"\n勇者パーティーに"              +
+        $"\n攻撃力+{PowerFunction()}" +
+        $"\n\n加護：勇者パーティー"          +
+        $"\nバッファー";
     
     public override string Tip =>
             $"バッファー"                +
@@ -30,6 +31,6 @@ public class CSlimeMagician : GameCharacter
 
     public override int PowerFunction()
     {
-        return 1000 + Getlevel() * 3;
+        return   Getlevel() * 500;
     }
 }

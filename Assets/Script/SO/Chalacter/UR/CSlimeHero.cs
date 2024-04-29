@@ -6,9 +6,10 @@ using UnityEngine;
 public class CSlimeHero : GameCharacter
 {
     public override string Description =>
-        $"伝説の勇者。" +
+        $"伝説の勇者。"                  +
         $"\n攻撃力：{PowerFunction()}" +
-        $"\n加護：勇者パーティー";
+        $"\n加護：勇者パーティー"            +
+        $"\nアタッカー";
 
     public override string Tip =>
         $"アタッカー" +
@@ -20,6 +21,6 @@ public class CSlimeHero : GameCharacter
 
     public override int PowerFunction()
     {
-        return 10000 + Getlevel() * 1;
+        return   Getlevel() * 10000;
     }
 }

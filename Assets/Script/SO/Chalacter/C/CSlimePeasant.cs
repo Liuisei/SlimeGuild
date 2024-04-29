@@ -6,9 +6,10 @@ public class CSlimePeasant : GameCharacter
 {
     public override string Description
     {
-        get => $"スライム王国の平民。"            +
+        get => $"スライム王国の平民。"              +
                $"\n攻撃力：{PowerFunction()}" +
-               $"\n\n加護：スライム王国";
+               $"\n\n加護：スライム王国"           +
+               $"\nアタッカー";
     }
 
     public override string Tip
@@ -23,6 +24,6 @@ public class CSlimePeasant : GameCharacter
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 1;
+        return  Getlevel() * 5;
     }
 }

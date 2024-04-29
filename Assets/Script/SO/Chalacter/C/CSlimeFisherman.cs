@@ -5,9 +5,10 @@ using UnityEngine;
 public class CSlimeFisherman : GameCharacter
 {
     public override string Description =>
-        $"毎日一杯釣れる。"              +
+        $"スライム王国の漁夫"               +
         $"\n攻撃力：{PowerFunction()}" +
-        $"\n\n 加護：スライム王国";
+        $"\n\n 加護：スライム王国"          +
+        $"\nアタッカー";
 
     public override string Tip =>
         $"アタッカー" +
@@ -19,6 +20,6 @@ public class CSlimeFisherman : GameCharacter
 
     public override int PowerFunction()
     {
-        return 10 + Getlevel() * 10;
+        return 20 + Getlevel() * 3;
     }
 }

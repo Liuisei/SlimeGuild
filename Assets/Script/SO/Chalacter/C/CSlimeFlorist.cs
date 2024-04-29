@@ -6,15 +6,15 @@ using UnityEngine;
 public class CSlimeFlorist : GameCharacter
 {
     public override string Description =>
-        $"皆が大好きな花屋さん" +
-        $"\nスライム王国のアイドルだ。" +
+        $"皆が大好きな花屋さん"                           +
+        $"\nスライム王国のアイドルだ。"                      +
         $"\nスライム王国に攻撃力*{PowerFunction() / 10f}" +
-        $"\n\n加護：スライム王国";
+        $"\n\n加護：スライム王国"                        +
+        $"\nバッファー";
 
     public override string Tip =>
         $"バッファー" +
-        $"\nスライム王国に" +
-        $"\n攻撃力X{power / 10f}";
+        $"\nスライム王国に攻撃力X{power / 10f}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {

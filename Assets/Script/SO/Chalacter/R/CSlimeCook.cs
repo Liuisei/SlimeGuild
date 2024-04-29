@@ -7,28 +7,28 @@ using UnityEngine;
 public class CSlimeCook : GameCharacter
 {
     public override string Description =>
-        $"国王も認める国一番の料理人。" +
+        $"国王も認める国一番の料理人。"          +
         $"\n攻撃力+{PowerFunction()}" +
-        $"\n\n加護：スライム王国";
+        $"\n\n加護：スライム王国"           +
+        $"\nバッファー";
 
     public override string Tip =>
         $"バッファー" +
         $"\n勇者パーティー,スライム王国に" +
-        $"\n攻撃力+{power * 2}";
+        $"\n攻撃力+{power}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        var targetParties = targetGameCharacters.Where(p =>
-            p.propertys.Contains(Property.BraveParty) || p.propertys.Contains(Property.SlimeCuntry));
+        var targetParties = targetGameCharacters.Where(p => p.propertys.Contains(Property.SlimeCuntry));
 
         foreach (var targetMember in targetParties)
         {
-            targetMember.power += power * 2;
+            targetMember.power += power;
         }
     }
 
     public override int PowerFunction()
     {
-        return 60 + Getlevel() * 1;
+        return Getlevel() * 100;
     }
 }

@@ -6,9 +6,10 @@ public class CSlimeDog : GameCharacter
 {
     public override string Description
     {
-        get => $"勇者パーティーと行動したスライム王国の伝説の犬。" +
-               $"\n攻撃力：{PowerFunction()}"    +
-               $"\n\n加護：勇者パーティー、スライム王国";
+        get => $"勇者と行動したスライム王国の伝説の犬。"     +
+               $"\n攻撃力：{PowerFunction()}" +
+               $"\n\n加護：勇者パーティー、スライム王国"   +
+               $"\nアタッカー";
     }
 
     public override string Tip
@@ -25,6 +26,6 @@ public class CSlimeDog : GameCharacter
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 1;
+        return 10 + Getlevel() * 5;
     }
 }

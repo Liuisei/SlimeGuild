@@ -7,10 +7,10 @@ using UnityEngine;
 public class CSlimePastor : GameCharacter
 {
     public override string Description =>
-        $"国では有名な優しい牧師さん。" +
-        $"\nスライム王国に" +
-        $"\n攻撃力+{PowerFunction()}" +
-        $"\n\n加護：スライム王国";
+        $"勇者パーティーの優しい牧師。"                    +
+        $"\n勇者パーティーに攻撃力*{PowerFunction()*2}" +
+        $"\nスライム王国に攻撃力*{PowerFunction()}"    +
+        $"\n\n加護：勇者パーティー";
 
     public override string Tip =>
         $"バッファー" +
@@ -21,15 +21,21 @@ public class CSlimePastor : GameCharacter
     {
         var targetParties = targetGameCharacters.Where(p =>
             p.propertys.Contains(Property.SlimeCuntry));
+        var targetPartieB = targetGameCharacters.Where(p =>
+            p.propertys.Contains(Property.BraveParty));
 
         foreach (var targetMember in targetParties)
         {
-            targetMember.power += power;
+            targetMember.power *= power;
+        }
+        foreach (var targetMember in targetPartieB)
+        {
+            targetMember.power *= power*2;
         }
     }
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 3;
+        return  Getlevel();
     }
 }

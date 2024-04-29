@@ -6,9 +6,10 @@ using UnityEngine;
 public class CSlimeElder : GameCharacter
 {
     public override string Description =>
-            $"異属を束ねる長。"              +
+            $"スライム村を束ねる長老。"            +
             $"\n攻撃力：{PowerFunction()}" +
-            $"\n\n 加護：勇者パーティー";
+            $"\n\n 加護：スライム王国"          +
+            $"\nアタッカー"                        ;
 
     public override string Tip =>
             $"アタッカー" +
@@ -20,6 +21,6 @@ public class CSlimeElder : GameCharacter
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 2;
+        return 1000 + Getlevel() * 500;
     }
 }

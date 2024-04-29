@@ -6,9 +6,11 @@ using UnityEngine;
 public class CSlimeGuard : GameCharacter
 {
     public override string Description =>
-        $"国の見回りを任されている。" +
+        $"スライム王国の衛兵"               +
+        $"\n国の見回りを任されている。"         +
         $"\n攻撃力：{PowerFunction()}" +
-        $"\n\n 加護：スライム王国";
+        $"\n\n 加護：スライム王国"          +
+        $"\nアタッカー";
 
     public override string Tip =>
         $"アタッカー" +
@@ -20,6 +22,6 @@ public class CSlimeGuard : GameCharacter
 
     public override int PowerFunction()
     {
-        return 40 + Getlevel() * 2;
+        return 50 + Getlevel() * 5;
     }
 }

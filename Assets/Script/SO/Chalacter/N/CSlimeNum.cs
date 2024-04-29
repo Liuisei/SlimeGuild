@@ -14,20 +14,20 @@ public class CSlimSister : GameCharacter
     public override string Tip =>
         $"バッファー" +
         $"\nスライム王国に" +
-        $"\n攻撃力+{power * 2}";
+        $"\n攻撃力+{power}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        var targetParties = targetGameCharacters.Where(p =>
-            p.characterName == CharacterType.Cat || p.characterName == CharacterType.Dog);
+        var targetParties = targetGameCharacters.Where(p => p.propertys.Contains(Property.SlimeCuntry));
+
         foreach (var targetMember in targetParties)
         {
-            targetMember.power += power * 2;
+            targetMember.power += power;
         }
     }
 
     public override int PowerFunction()
     {
-        return 30 + Getlevel() * 2;
+        return 100 + Getlevel() * 1;
     }
 }

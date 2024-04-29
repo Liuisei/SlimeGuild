@@ -7,28 +7,25 @@ using UnityEngine;
 public class CSlimeSoothsayer : GameCharacter
 {
     public override string Description =>
-        $"ちょっぴり怪しい占い師。" +
-        $"\n勇者パーティーに" +
-        $"\n攻撃力+{PowerFunction()}" +
-        $"\n\n加護：勇者パーティー";
+        $"ちょっぴり怪しい占い師。"                  +
+        $"\nパーティーに攻撃力X{PowerFunction()}" +
+        $"\n\n加護：スライム王国"                 +
+        $"\nバッファー";
 
     public override string Tip =>
         $"バッファー" +
-        $"\nスライム王国に" +
-        $"\n攻撃力+{power * 2}";
+        $"\nパーティーに攻撃力X{power}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        var targetParties = targetGameCharacters.Where(p => p.propertys.Contains(Property.BraveParty));
-
-        foreach (var targetMember in targetParties)
+        foreach (var targetMember in targetGameCharacters)
         {
-            targetMember.power += power * 2;
+            targetMember.power *= power;
         }
     }
 
     public override int PowerFunction()
     {
-        return 50 + Getlevel() * 2;
+        return Getlevel();
     }
 }

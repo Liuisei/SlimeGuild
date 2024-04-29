@@ -6,9 +6,10 @@ using UnityEngine;
 public class CSlimeKnight : GameCharacter
 {
     public override string Description =>
-        $"国を守る王様直属の騎士。" +
+        $"国を守る王様直属の騎士。"            +
         $"\n攻撃力：{PowerFunction()}" +
-        $"\n\n 加護：スライム王国";
+        $"\n\n 加護：スライム王国"          +
+        $"\nアタッカー";
 
     public override string Tip =>
         $"アタッカー" +
@@ -20,6 +21,6 @@ public class CSlimeKnight : GameCharacter
 
     public override int PowerFunction()
     {
-        return 50 + Getlevel() * 2;
+        return  Getlevel() * 200;
     }
 }

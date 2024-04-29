@@ -7,30 +7,27 @@ using UnityEngine;
 public class CSlimeQueen : GameCharacter
 {
     public override string Description =>
-        $"スライム王国の王妃。" +
-        $"\nスライム王国に" +
-        $"\n攻撃力*{PowerFunction()}" +
-        $"\n\n加護：スライム王国";
+        $"スライム王国の王妃。"                   +
+        $"\n国王に攻撃力*{PowerFunction()}" +
+        $"\n\n加護：スライム王国"                +
+        $"\nバッファー";
 
     public override string Tip =>
             $"バッファー" +
-            $"\nスライム王国に" +
-            $"\n攻撃力X{power * 99}";
+            $"\n国王に攻撃力X{power}";
 
     public override void Buff(List<GameCharacter> targetGameCharacters)
     {
-        var targetParties = targetGameCharacters.Where(p =>
-            p.propertys.Contains(Property.SlimeCuntry));
-
+        var targetParties = targetGameCharacters.Where(e => e.characterName == CharacterType.King);
+        
         foreach (var targetMember in targetParties)
         {
-            //パワーが100倍になるようにBuffする
-            targetMember.power += power * 99;
+            targetMember.power *= power;
         }
     }
 
     public override int PowerFunction()
     {
-        return 100 + Getlevel() * 1;
+        return   Getlevel() * 5;
     }
 }

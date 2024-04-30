@@ -832,10 +832,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 663033452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.3831, y: 112.54}
-  m_SizeDelta: {x: 200.9324, y: 225.09}
+  m_AnchorMin: {x: 0.141, y: 0.4823875}
+  m_AnchorMax: {x: 0.83900005, y: 0.938}
+  m_AnchoredPosition: {x: 1.6168976, y: 4.5400085}
+  m_SizeDelta: {x: -1.0675964, y: -8.910004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1990532110
 MonoBehaviour:
@@ -1033,6 +1033,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5119065087044960552, guid: 3579e70bd9939f34eacabfd8386833c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.9000244
+      objectReference: {fileID: 0}
     - target: {fileID: 5231378336310212530, guid: 3579e70bd9939f34eacabfd8386833c6, type: 3}
       propertyPath: m_Type
       value: 0
@@ -1079,7 +1083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6237362756056042222, guid: 3579e70bd9939f34eacabfd8386833c6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.9285965
+      value: 0.92858887
       objectReference: {fileID: 0}
     - target: {fileID: 6237362756056042222, guid: 3579e70bd9939f34eacabfd8386833c6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1336,20 +1340,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4900067671874369902, guid: 6414a15e3ab70144cacceb865c8305ea, type: 3}
-      propertyPath: Loop
-      value: 1
+      propertyPath: m_Volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6872748742501341564, guid: 6414a15e3ab70144cacceb865c8305ea, type: 3}
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 7686855062919532579, guid: 6414a15e3ab70144cacceb865c8305ea, type: 3}
-      propertyPath: _bgmSoundDatas.Array.data[1]._volume
+      propertyPath: _masterVolume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7686855062919532579, guid: 6414a15e3ab70144cacceb865c8305ea, type: 3}
-      propertyPath: _bgmSoundDatas.Array.data[2]._volume
-      value: 1
+      propertyPath: _seMasterVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686855062919532579, guid: 6414a15e3ab70144cacceb865c8305ea, type: 3}
+      propertyPath: _bgmMasterVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138909316110749739, guid: 6414a15e3ab70144cacceb865c8305ea, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1407,114 +1419,6 @@ PrefabInstance:
     - target: {fileID: 4463846602098223560, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
       propertyPath: m_Name
       value: DataManagerPrefub
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: money
-      value: 100000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _tipsSF
-      value: 
-      objectReference: {fileID: 3670063491707467430, guid: c5d1cf3c7b64a3d48966dc54b98dd5b3, type: 3}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _detilSF
-      value: 
-      objectReference: {fileID: 3670063491707467430, guid: 4e4b899826e8917448fae32c13e5a15f, type: 3}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _moneySiri
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _moneySiriSF
-      value: 50000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _characterDatabaseSiriSF
-      value: 
-      objectReference: {fileID: 11400000, guid: 85bc4ddf7c96cd849b09108c56fc8326, type: 2}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _partyListSiriSF.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _partyListSiriSF.Array.data[0]
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _partyListSiriSF.Array.data[1]
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _partyListSiriSF.Array.data[2]
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _partyListSiriSF.Array.data[3]
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _partyListSiriSF.Array.data[4]
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiri.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: drawCharacterResultList.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: drawCharacterResultList.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[0]._levelSiriSF
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[1]._levelSiriSF
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[2]._levelSiriSF
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[3]._levelSiriSF
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[4]._levelSiriSF
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[5]._levelSiriSF
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[1]._characterIdSiriSF
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[2]._characterIdSiriSF
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[3]._characterIdSiriSF
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[4]._characterIdSiriSF
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7953798910553709978, guid: 4fcf976732392b44595ab0a1be65086e, type: 3}
-      propertyPath: _playerCharactersSiriSF.Array.data[5]._characterIdSiriSF
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

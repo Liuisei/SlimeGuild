@@ -84,6 +84,7 @@ public class DataManager : Singleton<DataManager>
         get => _moneySiriSF;
         set
         {
+            if (_moneySiriSF > 1000000000) _moneySiriSF = 1000000000;
             _moneySiriSF = value;
             OnMoneyChanged?.Invoke();
             SavePlayerData();
@@ -117,8 +118,8 @@ public class DataManager : Singleton<DataManager>
     /// <returns></returns>
     public bool HasCharacter(int id)
     {
-        if (_playerCharactersSiriSF.Find(e => e._characterId == id)._quantity > 0 &&
-            _playerCharactersSiriSF.Find(e => e._characterId == id)._level    > 0) return true;
+        if (_playerCharactersSiriSF.Find(e => e._characterId == id)._quantity > 0 ||
+            _playerCharactersSiriSF.Find(e => e._characterId == id)._level    > 1) return true;
 
 
         return false;
@@ -257,11 +258,12 @@ public class DataManager : Singleton<DataManager>
         OnClicked?.Invoke();
         SoundManager.Instance.PlaySE(SeSoundData.Se.Clicker);
     }
-    PlayerSaveData saveData = new PlayerSaveData(); 
+
+    PlayerSaveData saveData = new PlayerSaveData();
 
     public void SavePlayerData()
     {
-         saveData = new PlayerSaveData 
+        saveData = new PlayerSaveData
         {
             _monet                = _moneySiriSF,
             _playerCharacterDatas = _playerCharactersSiriSF,
@@ -289,7 +291,6 @@ public class DataManager : Singleton<DataManager>
             _moneySiriSF     = 50000;
             _partyListSiriSF = new List<int> { -1, -1, -1, -1, -1 };
         }
-        PartySetUp();
     }
 
     public void ResetPlayerCharacterData()
@@ -325,10 +326,11 @@ public class PlayerCharacterData
     public int _quantity;    //所持数
     public int _level;       //レベル
 }
+
 [Serializable]
 public class PlayerSaveData
 {
-    public int                       _monet;               
-    public List<PlayerCharacterData> _playerCharacterDatas; 
-    public List<int>                    _party ;      
+    public int                       _monet;
+    public List<PlayerCharacterData> _playerCharacterDatas;
+    public List<int>                 _party;
 }

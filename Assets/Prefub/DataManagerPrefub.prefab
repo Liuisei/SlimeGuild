@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dfb7242dfc1a6441b47c13be02f2934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDatabase: {fileID: 11400000, guid: 85bc4ddf7c96cd849b09108c56fc8326, type: 2}
-  money: 1000
-  playerCharacters: []
-  darwCharacterResultList: 
-  partyList: ffffffffffffffffffffffffffffffffffffffff
-  nowPower: 0
-  selectPartyCountMax: 5
+  _characterDatabaseSiriSF: {fileID: 11400000, guid: 85bc4ddf7c96cd849b09108c56fc8326, type: 2}
+  _moneySiriSF: 50000
+  _playerCharactersSiriSF: []
+  _drawCharacterResultResultListSiriSF: 
+  _partyListSiriSF: ffffffffffffffffffffffffffffffffffffffff
+  _nowPowerSiriSF: 0
+  _selectPartyCountMaxSiriSF: 5
+  _detilSF: {fileID: 3670063491707467430, guid: 4e4b899826e8917448fae32c13e5a15f, type: 3}
+  _tipsSF: {fileID: 3670063491707467430, guid: c5d1cf3c7b64a3d48966dc54b98dd5b3, type: 3}

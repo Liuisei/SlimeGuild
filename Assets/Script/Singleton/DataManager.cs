@@ -84,8 +84,8 @@ public class DataManager : Singleton<DataManager>
         get => _moneySiriSF;
         set
         {
-            if (_moneySiriSF > 1000000000) _moneySiriSF = 1000000000;
             _moneySiriSF = value;
+            if (_moneySiriSF > 1000000000) _moneySiriSF = 1000000000;
             OnMoneyChanged?.Invoke();
             SavePlayerData();
         }
@@ -291,6 +291,7 @@ public class DataManager : Singleton<DataManager>
             _moneySiriSF     = 50000;
             _partyListSiriSF = new List<int> { -1, -1, -1, -1, -1 };
         }
+        PartySetUp();
     }
 
     public void ResetPlayerCharacterData()

@@ -18,5 +18,7 @@ EditorBuildSettings:
     path: Assets/0Scenes/4TenGacha.unity
     guid: ae906da9f88cfa441b5fa89a7c684d5a
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 342d75c13b0b5d8408db9730d12f343a, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 593dc309caa0e5c4291e4f4d23f62bfe, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 327ee844885d65d46adc919cfa83b56c, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e9d6cd2dcf98a7c4da5e76897e05de07, type: 2}

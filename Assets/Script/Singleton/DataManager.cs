@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GoogleMobileAds.Api;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -48,6 +49,7 @@ public class DataManager : Singleton<DataManager>
     public override void AwakeFunction()
     {
         LoadPlayerData();
+        
     }
 
     public bool IsPartyIndexMax()
@@ -59,6 +61,7 @@ public class DataManager : Singleton<DataManager>
     public void Start()
     {
         StartCoroutine(UpdatePower());
+        MobileAds.Initialize(initStatus => { });
     }
 
     IEnumerator UpdatePower()

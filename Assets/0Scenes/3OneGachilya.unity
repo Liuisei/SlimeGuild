@@ -215,6 +215,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1639849233
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1051.3085
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1489.7357
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.80594
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815689890547045689, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424294348881214984, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
+      propertyPath: m_Name
+      value: Baner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0273bdef29ba87641a3fd45a3d0e81ca, type: 3}
 --- !u!1 &1801216602
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,8 +807,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6306615852204921852, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.609
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306615852204921852, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.18100001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306615852204921852, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.061184835
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306615852204921852, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.49041748
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306615852204921852, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.0328064
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306615852204921852, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.24520111
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306615852204921852, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5199585
+      value: 2.380005
       objectReference: {fileID: 0}
     - target: {fileID: 7164861898620347606, guid: 01947aabba5a6b445b1b2db4c3166b38, type: 3}
       propertyPath: m_fontSize
@@ -1009,3 +1090,4 @@ SceneRoots:
   - {fileID: 1613028472}
   - {fileID: 1801216605}
   - {fileID: 2419673623606411226}
+  - {fileID: 1639849233}

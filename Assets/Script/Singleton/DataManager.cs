@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GoogleMobileAds.Api;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -48,6 +49,7 @@ public class DataManager : Singleton<DataManager>
     public override void AwakeFunction()
     {
         LoadPlayerData();
+        
     }
 
     public bool IsPartyIndexMax()
@@ -59,6 +61,7 @@ public class DataManager : Singleton<DataManager>
     public void Start()
     {
         StartCoroutine(UpdatePower());
+        MobileAds.Initialize(initStatus => { });
     }
 
     IEnumerator UpdatePower()
@@ -85,6 +88,7 @@ public class DataManager : Singleton<DataManager>
         set
         {
             _moneySiriSF = value;
+            if (_moneySiriSF > 1000000000) _moneySiriSF = 1000000000;
             OnMoneyChanged?.Invoke();
             SavePlayerData();
         }
@@ -117,8 +121,8 @@ public class DataManager : Singleton<DataManager>
     /// <returns></returns>
     public bool HasCharacter(int id)
     {
-        if (_playerCharactersSiriSF.Find(e => e._characterId == id)._quantity > 0 &&
-            _playerCharactersSiriSF.Find(e => e._characterId == id)._level    > 0) return true;
+        if (_playerCharactersSiriSF.Find(e => e._characterId == id)._quantity > 0 ||
+            _playerCharactersSiriSF.Find(e => e._characterId == id)._level    > 1) return true;
 
 
         return false;
@@ -257,11 +261,12 @@ public class DataManager : Singleton<DataManager>
         OnClicked?.Invoke();
         SoundManager.Instance.PlaySE(SeSoundData.Se.Clicker);
     }
-    PlayerSaveData saveData = new PlayerSaveData(); 
+
+    PlayerSaveData saveData = new PlayerSaveData();
 
     public void SavePlayerData()
     {
-         saveData = new PlayerSaveData 
+        saveData = new PlayerSaveData
         {
             _monet                = _moneySiriSF,
             _playerCharacterDatas = _playerCharactersSiriSF,
@@ -325,10 +330,11 @@ public class PlayerCharacterData
     public int _quantity;    //所持数
     public int _level;       //レベル
 }
+
 [Serializable]
 public class PlayerSaveData
 {
-    public int                       _monet;               
-    public List<PlayerCharacterData> _playerCharacterDatas; 
-    public List<int>                    _party ;      
+    public int                       _monet;
+    public List<PlayerCharacterData> _playerCharacterDatas;
+    public List<int>                 _party;
 }

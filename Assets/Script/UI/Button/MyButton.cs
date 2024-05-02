@@ -44,25 +44,26 @@ public abstract class MyButton : MonoBehaviour,
     {
         _onButtonDown?.Invoke();
 
-        MouseDownChangeTexture();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         _onButtonUp?.Invoke();
         OnButtonUp();
-        TextureReset();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         _onButtonEnter?.Invoke();
         SoundManager.Instance.PlaySE(SeSoundData.Se.Onmouse);
+        MouseDownChangeTexture();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         _onButtonExit?.Invoke();
+        TextureReset();
+
     }
 
     public void OnPointerClick(PointerEventData eventData)

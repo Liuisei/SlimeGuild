@@ -54,10 +54,10 @@ MonoBehaviour:
     _volume: 1
   - _bgm: 2
     _audioClip: {fileID: 8300000, guid: fef62211d6f004f4e99c0ac8eb0ffac3, type: 3}
-    _volume: 0
+    _volume: 1
   - _bgm: 0
     _audioClip: {fileID: 8300000, guid: 2e867bd3c3e80714ea91dc9fcab98e20, type: 3}
-    _volume: 0
+    _volume: 1
   _seSoundDatas:
   - _se: 0
     _audioClip: {fileID: 8300000, guid: 7d7f38570d5de0b47b41ba982c4f849b, type: 3}
@@ -91,7 +91,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
